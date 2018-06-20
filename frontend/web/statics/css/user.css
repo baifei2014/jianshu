@@ -1,0 +1,329 @@
+.user-index{
+    width: 82%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.usermain-content{
+    margin-top: -10px;
+}
+.cont-acc{
+    border-bottom:1px solid #d4d4d4;
+    padding: 20px 0 13px 0;
+}
+.contacc-top{
+    overflow: hidden;
+}
+.contacctop-left{
+    float: left;
+}
+.contacctop-left img{
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+}
+.contacctop-right{
+    float: left;
+    line-height: 40px;
+    font-size: 13px;
+}
+.contacctop-right span{
+    margin-left: 10px;
+}
+.contacctop-name{
+
+}
+.contacctop-behavior{
+    color: #72777b;
+}
+.contacc-middle{
+    margin: 10px 0; 
+}
+.contaccmiddle-top{
+    font-size: 15px;
+    color: #000;
+}
+.contaccmiddle-middle{
+    border-left: 3px solid #bec0c2;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+.contaccmiddlemiddle-top{
+    color: #72777b;
+    font-size: 15px;
+    font-weight: 600;
+}
+.contaccmiddlemiddle-middle{
+    margin-top: 5px;
+    color: #72777b;
+    line-height: 25px;
+}
+.contaccmiddlemiddle-bottom{
+    margin-top: 10px;
+    color: #72777b;
+    font-size: 14px;
+}
+.contaccmiddlemiddle-bottom span.articalinfor-area{
+}
+.contaccmiddlemiddle-bottom span.artical-infor{
+    margin-right: 15px;
+    cursor: pointer;
+}
+.contaccmiddlemiddle-bottom span.artical-infor:hover{
+    color: #222;
+}
+.contbccmiddle-top{
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+}
+.contbccmiddle-middle{
+    margin-top: 5px;
+    font-size: 13px;
+    color: #333;
+    line-height: 25px;
+}
+.contbccmiddle-bottom{
+    margin-top: 5px;
+    color: #72777b;
+    font-size: 14px;
+}
+.contbccmiddle-bottom span.artical-infor{
+    margin-right: 15px;
+    cursor: pointer;
+}
+.contbccmiddle-bottom span.artical-infor:hover{
+    color: #222;
+}
+.contbcc-area{
+    overflow: hidden;
+}
+.contbccmiddle-left{
+    float: left;
+    width: 75%;
+}
+.contbccmiddle-right{
+    float: right;
+    width: 23%;
+}
+.contbccmiddle-right img{
+    width: 128px;
+    height: 110px;
+    border-radius: 4px;
+}
+.contaccmiddlemiddle-bottom .auther-name,.contbccmiddle-bottom .auther-name{
+    margin-right: 30px;
+}
+.userindex-lefttop{
+}
+.userindexlefttop-right{
+    height: 95px;
+    float: right;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    display: -moz-box;
+    -moz-box-orient: horizontal;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+
+    display: -o-box;
+    -o-box-orient: horizontal;
+    -o-box-pack: center;
+    -o-box-align: center;
+
+    display: -ms-box;
+    -ms-box-orient: horizontal;
+    -ms-box-pack: center;
+    -ms-box-align: center;
+
+    display: box;
+    box-orient: horizontal;
+    box-pack: center;
+    box-align: center;
+}
+.addfocus-btn{
+    background-color: #66CC00;
+    color: #fff;
+    border: 2px solid #66CC00;
+}
+.include-btn{
+    background-color: #fff;
+    color: #00DD00;
+    border: 1px solid #00DD00;
+}
+.focus-btn{
+    width: 100px;
+    height: 40px;
+    border-radius: 22px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 15px;
+}
+.focus-btn:first-child{
+    margin-left: 0;
+}
+.focused-btn{
+    color: #a1a3a6;
+    border:1px solid #a1a3a6;
+}
+.focus-user{
+    border-bottom:1px solid #d4d4d4;
+    padding: 20px 0;
+}
+.focususer-infor{
+    overflow: hidden;
+}
+.focususerinfor-left{
+    float: left;
+}
+.focususerinfor-right{
+    float: left;
+    margin-left: 15px;
+    height: 60px;
+    line-height: 23px;
+    padding-top: 7px;
+}
+a.userfocus-name{
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+.opfocus-area{
+    
+    float: right;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    display: -moz-box;
+    -moz-box-orient: horizontal;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+
+    display: -o-box;
+    -o-box-orient: horizontal;
+    -o-box-pack: center;
+    -o-box-align: center;
+
+    display: -ms-box;
+    -ms-box-orient: horizontal;
+    -ms-box-pack: center;
+    -ms-box-align: center;
+
+    display: box;
+    box-orient: horizontal;
+    box-pack: center;
+    box-align: center;
+}
+.befocus-userinfor span{
+    color: #72777b;
+}
+.tabfocus-area{
+    border-radius: 22px;
+}
+.tabfans-area{
+    border-radius: 22px;
+}
+.people-intro{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e6e8eb;
+}
+.peopleintro-top{
+    color: #77787b;
+}
+.peopleintro-middle{
+    margin-top: 7px;
+    font-size: 14px;
+}
+.peopleintro-bottom{
+    margin-top: 7px;
+}
+.peopleintro-bottom a{
+    color: #33CC33;
+}
+.peopleintro-bottom a img{
+    color: #33CC33;
+}
+.focuslike-area{
+    border-bottom: 1px solid #e6e8eb;
+    padding: 8px 3px;
+}
+.focuslike-area li{
+    padding: 12px 0;
+}
+.focuslike-area a{
+    color: #000;
+}
+.focus-sets{
+    margin-left: 10px;
+    font-size: 14px;
+}
+.like-articals{
+    margin-left: 10px;
+    font-size: 14px;
+}
+.icon-home{
+    color: #33CC33;
+}
+.created-subject{
+    padding: 15px 0;
+    border-bottom: 1px solid #e6e8eb;
+}
+.createdsubject-top{
+    color: #77787b;
+}
+.createdsubject-middle{
+    margin-top: 8px;
+    font-size: 14px;
+}
+.createdsubject-middle li{
+    line-height: 45px;
+    color: #000;
+}
+.created-sets{
+    padding: 15px 0;
+    border-bottom: 1px solid #e6e8eb;
+}
+.createdsets-top{
+    color: #77787b;
+}
+.createdsets-middle{
+    margin-top: 5px;
+}
+.createdsets-middle li{
+    line-height: 34px;
+}
+.createdsets-middle li i{
+    color: #77787b;
+}
+.createdsets-middle span{
+    margin-left: 8px;
+    font-size: 15px;
+}
+.qrcode{
+    height: 120px;
+    width: 120px;
+    margin-top: 50px;
+    border:1px solid red;
+}
+.qrcode:after{
+    content:"";
+    display: block;
+    width: 0;
+    height: 0;
+    border:20px solid;
+    border-color: red blue yellow purple;
+}
+.subject-avatar-small{
+    height: 35px;
+    width: 35px;
+    border-radius: 5px;
+    border:1px solid #d4d4d4;
+}

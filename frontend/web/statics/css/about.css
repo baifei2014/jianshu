@@ -1,0 +1,132 @@
+.post-content{
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 20px;
+    position: relative;
+}
+.introduce-images{
+}
+.introduce-images a{
+    width: 100%;
+    display: block;
+}
+.introduce-images img{
+    position: relative;
+    width: 60%;
+    left: 20%;
+    padding: 3px;
+    border:2px solid #fe9d01;
+    margin: 0 auto;
+}
+.introduce-summary{
+    padding: 4px 5px;
+}
+.post-menus ul{
+    padding: 0;
+}
+.post-menus ul li{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.post-menus ul li a{
+    display: block;
+    padding: 10px 15px;
+    font-size: 18px;
+    color: #f58220;
+}
+.post-menus ul li a:hover{
+    color:#fff;
+}
+.active{
+    border-bottom: 3px solid #ff8c05;
+    color: #fff;
+}
+.post-menus{
+    padding: 0;
+    height: 48px;
+    margin-top: 15px;
+    background-color: #4499ee;
+    border-radius: 5px 5px 0 0;
+}
+.post-menu-detail{
+    border: 1px solid #d4d4d4;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+    border-top: none;
+    position: relative;
+    padding: 50px 0;
+}
+.post-menu-detail ul li{
+    list-style-type: none;
+}
+.line{
+    text-align: center;
+}
+.line1{
+    background-color: #bec0c2;
+}
+.line2{
+    background-color: #d4d4d4;
+}
+.code-intro{
+    width: 95%;
+}
+.code-intro tr{
+    margin: 0;
+    border:1px solid #000;
+}
+.code-intro-title{
+    font-size: 16px;
+    text-align: right;
+    background-color: #d4d4d4;
+}
+.code-intro-title td{
+    padding: 4px 6px;
+}
+.code-intro td{
+    box-shadow: 1px 1px 2px #000;
+}
+.code-intro p{
+    line-height: 20px;
+    margin: 0;
+    padding: 2px 5px;
+}
+.code1{
+    background-color: #4c4c4c;
+    color: #b2d235;
+}
+.code2{
+    background-color: #333;
+    color: #1d953f;
+}
+.simple-intro{
+    padding: 10px 15px;
+}
+.simple-content{
+    line-height: 30px;
+}
+.person-links{
+    margin-left: 45px;
+    margin-bottom: 40px;
+}
+.person-link {
+    padding: 10px;
+    border-left:3px solid #036803;
+}
+.person-link p{
+    margin: 10px;
+}
+.number{
+    background-color: #000;
+    border-radius: 5px;
+    padding: 7px 15px;
+    color: #fff;
+}
+.linkse tr{
+    height: 50px;
+}
+.linkse td:first-child{
+    color: #777;
+}

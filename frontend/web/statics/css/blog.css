@@ -1,0 +1,169 @@
+.blog-default-index{
+}
+.blog-header{
+    padding: 30px 0 10px 0;
+    border-bottom: 1px solid #d4d4d4;
+}
+.blog-content{
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+}
+.content-left{
+    width: 70%;
+    float: left;
+}
+.lastest-area{
+    
+}
+.title1{
+    border-bottom: 1px solid #d4d4d4;
+    padding-bottom: 5px;
+}
+.lastest-area-header{
+    border-bottom: 1px solid #d4d4d4;
+    padding-bottom: 5px;
+}
+.lastest-area-content{
+    padding: 0 20px;
+    border-bottom: 1px solid #d4d4d4;
+    padding-bottom: 5px;
+}
+.last{
+    margin-top: 30px;
+}
+.classify{
+    text-align: right;
+
+}
+.for-details a{
+    color: #1d953f;
+}
+
+.lastest-area-footer{
+    padding: 0 20px;
+}
+.content-right{
+    width: 25%;
+    float: right;
+}
+.lastest-lists{
+    padding-top: 20px;
+}
+.lastest-content{
+    line-height: 30px;
+}
+.lastest-toper{
+    border-bottom: 1px solid #d4d4d4;
+}
+.title{
+    color: #000;
+}
+.title:hover{
+    color: #000;
+}
+.tabs{
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #d1f0ef;
+    border-radius: 5px;
+}
+.leave-message{
+}
+.caption{
+    padding: 5px 0;
+    border-bottom:1px solid #d4d4d4;
+}
+.tabs ul{
+    padding: 0 25px;
+}
+.tabs ul li{
+    line-height: 40px;
+    font-size: 17px;
+}
+.tabs a{
+    color: #000;
+}
+.tabs a:hover{
+    color: #000;
+}
+.links1{
+    color: #ff8c05;
+}
+.links1:hover{
+    color: #ff8c05;
+}
+.links2{
+    color: #1d953f;
+}
+.links2:hover{
+    color: #1d953f;
+}
+.banner{
+    margin-top: 20px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: #d1f0ef;
+    box-shadow: 2px -2px 0 #d4d4d4;
+    display: inline-block;
+    width: 100%;
+}
+.content2{
+    padding: 10px 15px;
+}
+.infor{
+    line-height: 40px;
+    color: #777;
+}
+.complete-artical{
+    margin-top: 20px;
+    color: #000;
+    font-size: 18px;
+}
+.links3{
+    color: #000;
+}
+.links3:hover{
+    color: #000;
+}
+.title2{
+    color: #000;
+    font-weight: 600;
+    font-size: 18px;
+}
+.title3{
+    font-size: 15px;
+}
+.title4{
+    font-size: 18px;
+}
+.links4{
+    color: #f58220;
+}
+.links4:hover{
+    color: #f58220;
+}
+.button1{
+    background-color: #ef4136;
+    padding: 3px 4px;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.blog-footer{
+    position: relative;
+    height: 100px;
+    width: 100%;
+    margin-top: 200px;
+    text-align: right;
+}

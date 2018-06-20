@@ -1,0 +1,110 @@
+.title15weig{
+    font-size: 15px;
+    font-weight: 900;
+}
+.title28weig{
+    font-size: 28px;
+    font-weight: 900;
+}
+.colorwhite{
+    color: #fff;
+}
+.color1{
+    color: #006699;
+}
+.title15{
+    font-size: 15px;
+}
+.color2{
+    color: #CCCCCC;
+}
+.color3{
+    color: #CC3333;
+}
+.title14weig{
+    font-size: 14px;
+    font-weight: 900;
+}
+.color4{
+    color: #339933;
+}
+.color5{
+    color: #d3d7d4;
+}
+.title17weig{
+    font-size: 17px;
+    font-weight: 600;
+}
+.color6{
+    color: #ef4136;
+}
+.title24weig{
+    font-size: 24px;
+    font-weight: 600;
+}
+.title20weig{
+    font-size: 20px;
+    font-weight: 600;
+}
+.colorred{
+    color: #ef4136;
+}
+.color8{
+    color: #4499ee;
+}
+.color7
+{
+    color: #FF9966;
+}
+.title17{
+    font-size: 17px;
+}
+.title15weig{
+    font-size: 15px;
+    font-weight: 600;
+}
+.color8{
+    color: #f3715c;
+}
+.title16{
+    font-size: 16px;
+}
+.title18weig{
+    font-size: 18px;
+    font-weight: 600;
+}
+.color9{
+    color: #d3d7d4;
+}
+.title16weig{
+    font-size: 16px;
+    font-weight: 600;
+}
+.color10{
+    color: #33a3dc;
+}
+.title13{
+    font-size: 13px;
+}
+.color-icon{
+    color: #f3715c;
+}
+.badge-byself{
+    display: inline-block;
+    min-width: 10px;
+    padding: 4px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #EE6363;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 999;
+}
+.pull-top{
+    top: 8px;
+}

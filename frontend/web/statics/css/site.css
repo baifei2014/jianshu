@@ -1,0 +1,479 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding-bottom: 15px;
+    color: #8a8c8e;
+    line-height: 25px;
+}
+.footer a{
+    color: #8a8c8e;
+    text-decoration: none;
+}
+.main-back-img{
+    height: 280px;
+    width: 100%;
+    background-image: url(../images/back4.jpg);
+}
+.main-back-shadea{
+    position: absolute;
+    height: 220px;
+    width: 100%;
+    margin-top: -280px;
+    background-color: #130c0e;
+    opacity: 0.6;
+}
+.main-back-shadeb{
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    margin-top: -60px;
+    background-color: #130c0e;
+    opacity: 0.7;
+}
+.main-words{
+    padding-bottom: 10px;
+    border-bottom:1px solid #fff;
+}
+.main-content-area{
+    position: absolute;
+    height: 220px;
+    width: 100%;
+    margin-top: -280px;
+    padding-top: 30px;
+}
+.main-words-leval1{
+    font-family: "华文行楷";
+    font-size: 24px;
+    height: 35px;
+    color: #d3d7d4;
+}
+
+.main-words-leval2{
+    margin-top: -10px;
+    font-size: 14px;
+    line-height: 25px;
+    color: #d3d7d4;
+}
+.main-base-infor{
+    color: #fff;
+}
+.main-email-infor{
+    height: 32px;
+    width: 230px;
+    color: #000;
+    padding-left: 10px;
+    padding-right: 10px;
+    border:none;
+    position: absolute;
+    left: 45.5px;
+    top: 1px;
+}
+.main-email-infor:focus{
+    border:none;
+}
+.main-send{
+    height: 32px;
+    color: #333;
+    width: 40px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 4px 0 0 4px;
+    background-color: #bec0c2;
+    position: absolute;
+    left: 5px;
+}
+.subscribe-intro{
+    margin-top: 10px;
+}
+.subscribe-area{
+    margin-top: 20px;
+    height: 35px;
+    left: 10px;
+    position: absolute;
+}
+.main-subscribe-btn{
+    position: absolute;
+    padding: 5px 12px;
+    width: 55px;
+    height: 32.5px;
+    background-color: #1d953f;
+    border-radius: 0 4px 4px 0;
+    left: 275px;
+    top: 0.5px;
+}
+.main-subscribe-btn:hover{
+    background-color: #007947;
+    cursor: pointer;
+    color: #fff;
+}
+.subscribe-error{
+    margin-top: 40px;
+    margin-left: 5px;
+    font-size: 15px;
+    color: #ef4136;
+}
+.main-content--area-footer{
+    position: absolute;
+    height: 60px;
+    margin-top: -60px;
+    width: 100%;
+    line-height: 55px;
+    color: #fff;
+}
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: "\e151";
+}
+
+a.desc:after {
+    content: "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view td {
+    white-space: nowrap;
+}
+
+.grid-view .filters input,
+.grid-view .filters select {
+    min-width: 50px;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav > li > form {
+    padding: 8px;
+}
+
+@media(max-width:768px) {
+	.nav li > form {
+	    padding: 3px;
+	}
+}
+
+.nav > li > form > button:hover {
+    text-decoration: none;
+}
+
+.main-menutop-area{
+    height: 45px;
+    line-height: 45px;
+    background-color: #003333;
+}
+.qq-icon{
+    width: 24px;
+    height: 19px;
+    background-size: 100%;
+}
+.weixin-icon{
+    width: 22px;
+    height: 22px;
+    background-size: 100%;
+}
+.contact-way{
+    height: 45px;
+    border-right:1px solid #464547;
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+}
+.contact-way:last-child{
+    border: none;
+}
+.nav-contact{
+    text-align: right;
+}
+.nav-contact span{
+    display: none;
+    color: #fff;
+    font-weight: 600;
+}
+.contact-way:nth-child(1):hover{
+    background-color: #6666CC;
+    width: 110px;
+}
+.contact-way:nth-child(2):hover{
+    background-color: #66CCCC;
+    width: 240px;
+}
+.contact-way:nth-child(3):hover{
+    background-color: #99CC99;
+    width: 200px;
+}
+.contact-way:nth-child(4):hover{
+    background-color: #339999;
+    width: 150px;
+}
+.contact-way:nth-child(5):hover{
+    background-color: #99CC99;
+    width: 150px;
+}
+
+.define-navbar-inverse{
+    position: absolute;
+    padding: 0;
+    width: 100%;
+    background-color: #fff;
+    border-bottom:1px solid #e6e8eb;
+}
+.define-navbar-inversed{
+    top: 0;
+    position: fixed;
+    padding: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow:1px 1px 2px #999;
+    z-index: 10;
+}
+.define-container{
+    margin-left: 115px;
+    margin-right: 130px;
+}
+.define-navbar-inverse .define-navbar-brands{
+    width: 175px;
+    float: left;
+}
+.define-navbar-inverse .logo{
+    height: 102px;
+    background-size: 100%;
+}
+.define-navbar-inverse .define-navbar-nav{
+    float: left;
+    margin-left: 30px;
+}
+.define-navbar-inverse .define-navbar-nav li{
+    float: left;
+    padding: 0;
+}
+.define-navbar-inverse .define-menu{
+    text-align: center;
+    display: block;
+    padding: 40.5px 20px;
+    font-weight: 600;
+    color: #000;
+    font-size: 15px;
+    text-decoration: none;
+}
+.define-navbar-inverse .define-menu:hover{
+    background-color: #e6e8eb;
+    text-decoration: none;
+    color: #FF0033;
+}
+
+
+.define-navbar-inversed .define-navbar-brands{
+    width: 130px;
+    float: left;
+}
+.define-navbar-inversed .logo{
+    height: 65px;
+    background-size: 100%;
+}
+.define-navbar-inversed .define-navbar-nav{
+    float: left;
+    margin-left: 30px;
+}
+.define-navbar-inversed .define-navbar-nav li{
+    float: left;
+    padding: 0;
+}
+.define-navbar-inversed .define-menu{
+    text-align: center;
+    display: block;
+    padding: 22px 15px;
+    font-weight: 600;
+    color: #000;
+    font-size: 15px;
+    text-decoration: none;
+}
+.define-navbar-inversed .define-menu:hover{
+    background-color: #e6e8eb;
+    text-decoration: none;
+    color: #FF0033;
+}
+
+
+li{
+    list-style: none;
+}
+
+.main-content{
+    margin-top: 110px;
+}
+.subscribe-infor{
+    background-color: #fff;
+    border-radius: 4px;
+    height: 100px;
+    border:1px solid #45b97c;
+    color: #000;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.site-error{
+    margin-top: 20px;
+    text-align: center;
+}
+img.error-notfound-img{
+    max-width: 260px;
+}
+.error-name{
+    margin-top: 30px;
+}
+.error-message{
+    color: #222;
+    margin-top: 20px;
+}
+.back-index{
+    margin-top: 45px;
+}
+.back-index a{
+    padding: 15px 25px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 25px;
+    background-color: #42c02e;
+}
+.back-index a:hover{
+    text-decoration: none;
+    background-color: #036803;
+}
+.navbar {
+    min-height: 60px;
+}
+.navbar-index {
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+.navbar-brand {
+    height: 60px;
+    line-height: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 27px;
+    color: #f3715c;
+}
+.navbar-brand:hover {
+    color: #f3715c;
+}
+.navbar-left {
+    margin-left: 20px;
+}
+.navbar-right {
+    margin-right: 20px;
+}
+.navbar-nav > li > a {
+    line-height: 30px;
+    font-size: 17px;
+    color: #555;
+}
+.navbar-nav > li.active > a {
+    color: #f3715c;
+    font-size: 18px;
+}
+.navbar-nav > li > a:hover {
+    background-color: transparent;
+    color: #f3715c;
+}
+.navbar-nav > li > a.post-nav {
+    background-color: #ef4136;
+    color: #fff;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.navbar-nav > li > a.user-avatar {
+    line-height: 20px;
+    padding: 10px 15px;
+}
+.user-avatar{
+    padding: 5px;
+}
+.user-avatar img{
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+.open > a:hover, .open > a:focus {
+    background-color: #fff;
+}
+.dropdown-menu > li > a {
+    padding: 6px 20px;
+    line-height: 30px;
+}

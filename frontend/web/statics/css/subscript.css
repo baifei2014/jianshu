@@ -1,0 +1,85 @@
+.all-focus{
+    font-size: 15.2px;
+    margin-left: 9px;
+}
+.allfocus-area{
+    margin-top: 7px;
+}
+.allfocus-area ul{
+    padding: 0;
+}
+.focus-list
+{
+    font-size: 14px;
+}
+.focus-list a{
+    padding: 10px 8px;
+    text-decoration: none;color: #000;
+    display: block;
+    border-radius: 5px;
+}
+.focus-list a:hover{
+    background-color: #EAEAEA;
+}
+.focus-list a.actived{
+    background-color: #EAEAEA;
+    font-weight: 600;
+}
+.col-nw-3{
+    width: 28%;
+    float: left;
+}
+.col-nw-9{
+    width: 72%;
+    float: left;
+}
+.focus-avatar{
+    height: 35px;
+    width: 35px;
+    border-radius: 35px;
+    margin-right: 10px;
+}
+.sub-content{
+    width: 92%;
+    margin: 0 auto;
+}
+.conu-acc{
+    border-bottom:1px solid #d4d4d4;
+    padding: 20px 0 13px 0;
+}
+.conu-acc:first-child{
+    padding-top: 0;
+}
+.contbccmiddle-rights{
+    float: right;
+    width: 21%;
+}
+.contbccmiddle-rights img{
+    width: 128px;
+    height: 110px;
+    border-radius: 4px;
+}
+.set-avatar{
+    height: 35px;
+    width: 35px;
+    border-radius: 35px;
+    margin-right: 10px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    line-height: 35px;
+    background-color: #666666;
+    box-shadow: 0 0 1px #333;
+}
+.circle-avatar{
+    height: 35px;
+    width: 35px;
+    border-radius: 35px;
+    margin-right: 10px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    line-height: 35px;
+    background-color: #f3715c;
+    box-shadow: 0 0 1px #ef4136;
+}

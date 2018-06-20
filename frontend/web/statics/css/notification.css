@@ -1,0 +1,195 @@
+.leftinfor-area li a{
+    display: block;
+    font-size: 15px;
+    padding: 12px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.leftinfor-area li a.actived{
+    background-color: #EAEAEA;
+}
+.leftinfor-area li a:hover{
+    background-color: #EAEAEA;
+}
+.leftinfor-area li span:first-child{
+    color: #f3715c;
+    display: inline-block;
+    width: 15%;
+}
+.leftinfor-area li span:nth-child(2){
+    display: inline-block;
+    width: 70%;
+    color: #000;
+}
+.commmess-toper{
+    font-size: 15px;
+    padding-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid #d4d4d4;
+}
+.commmess-list{
+    padding: 15px;
+    border-bottom: 1px solid #d4d4d4;
+}
+.comm-toper{
+}
+.commtoper-left{
+    float: left;
+    overflow: hidden;
+}
+.commtoper-right{
+    float: left;
+    margin-left: 15px;
+    border:1px solid red;
+}
+.comm-infor{
+    font-size: 1.1em;
+    color: #525252;
+}
+.comm-time{
+    margin-top: 2px;
+    font-size: 12px;
+    color: #999;
+}
+.comm-middle{
+    font-size: 15px;
+    color: #525252;
+    margin: 12px 0 8px 0;
+}
+.comm-footer span{
+    color: #a1a3a6;
+}
+.comm-footer span{
+    cursor: pointer;
+}
+.comm-footer span:hover{
+    color: #464547;
+}
+.comm-through{
+    margin-left: 30px;
+}
+.commreply-area{
+    margin-top: 20px;
+    display: none;
+}
+.subject-img-middle{
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    border:1px solid #e6e8eb;
+}
+.subjectname-area{
+    height: 50px;
+    line-height: 50px;
+    margin-left: 15px;
+    font-size: 15px;
+}
+.subject-icon-middle{
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    border:1px solid #f0f0f0;
+    display: block;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    color: #f3715c;
+}
+.subject-icon-middle i{
+    font-size: 18px;
+}
+.requestlist-area a{
+    text-decoration: none;
+    color: #000;
+}
+.back-requestlist{
+    color: #a1a3a6;
+    font-size: 1.05em;
+}
+.back-requestlist:hover{
+    color: #444;
+}
+.submissions-toper{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d4d4d4;
+}
+.subjectinfor-title{
+    font-weight: 600;
+    font-size: 1.05em;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.accept-btn{
+    color: #32CD32;
+    border:1px solid #32CD32;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+.accept-btn:hover{
+    background-color: #F0FFF0;
+}
+.refuse-btn{
+    color: #77787b;
+    border:1px solid #77787b;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+.refuse-btn:hover{
+    background-color: #F7F7F7;
+}
+.deal-area{
+    margin: 15px 0 5px 0;
+}
+.deal-area span{
+    margin-right: 8px;
+}
+.submissions-time{
+    color: #77787b;
+    font-size: 13px;
+}
+.has-deal{
+    font-weight: 600;
+}
+.removei-btn{
+    color: #f3715c;
+    font-size: 13px;
+    cursor: pointer;
+}
+.rss-area{
+    color: #fff;
+    background-color: #f3715c;
+    border-radius: 2px;
+    padding: 0 3px;
+    margin-right: 5px;
+}
+.empty-submissions{
+    width: 100%;
+    padding-top: 100px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 20px;
+}
+.submissions-infor{
+    font-weight: 600;
+    font-size: 15px;
+}
+.empty-icon{
+    color: #72777b;
+}
+input[name="untreated-submissions"]{
+    margin-right: 10px;
+}
+.thophy-area{
+    color: #ef4136;
+    margin-right: 5px;
+    font-size: 18px;
+}

@@ -1,0 +1,125 @@
+.form-wrap{
+    width: 100%;
+    min-height: 100%;
+}
+.form-toper{
+    height: 60px;
+}
+.main-content{
+    height: 500px;
+    background-image: url(../images/form.jpg);
+    background-size: 100%;
+    background-repeat: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 2px #666;
+}
+.form-area{
+    top: 120px;
+    width: 360px;
+    float: right;
+    background-color: #fff;
+    border-radius: 4px;
+    padding-bottom: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.form-menu{
+    width: 100%;
+}
+.form-menu a{
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px 0;
+    color: #000;
+    background-color: #EAEAEA;
+}
+.form-menu a:first-child{
+    border-radius: 4px 0 0 0;
+}
+.form-menu a:last-child{
+    border-radius: 0 4px 0 0;
+}
+.form-menu a.actived{
+    background-color: #fff;
+}
+.form-menu a:hover{
+    text-decoration: none;
+}
+.form-content{
+    padding: 30px 0;
+    width: 80%;
+    margin: 0 auto;
+}
+.btn-login{
+    width: 100%;
+    padding: 5px 0;
+    color: #fff;
+    font-size: 16px;
+    background-color: #049ff1;
+}
+.btn-login:hover{
+    color: #fff;
+}
+.btn-signup{
+    width: 100%;
+    padding: 5px 0;
+    color: #fff;
+    font-size: 16px;
+    background-color: #00ae9d;
+}
+.btn-signup:hover{
+    color: #fff;
+}
+.input-area{
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    border:1px solid #d4d4d4;
+    width: 100%;
+    border-radius: 4px;
+    height: 40px;
+}
+.input-icon{
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    color: #94d6da;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    vertical-align: middle;
+    display: table-cell;
+}
+.form-control{
+    border:none;
+    vertical-align: middle;
+    margin-top: 2px;
+    box-shadow: none;
+}
+.form-control:focus{
+    outline: none;
+    border:none;
+    box-shadow: none;
+}
+.has-error .form-control{
+    box-shadow: none;
+}
+.has-error .form-control:focus{
+    box-shadow: none;
+}
+.has-success .form-control{
+    box-shadow: none;
+}
+.has-success .form-control:focus{
+    box-shadow: none;
+}
+.form-footer{
+    height: 70px;
+    text-align: center;
+    line-height: 60px;
+}
