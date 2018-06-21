@@ -134,7 +134,7 @@ $this->title = '蒋龙豪 - 简书';
         ?>
         <div class="created-subject">
             <div class="createdsubject-top">
-                <div class="row"><div class="col-sm-6"><?php echo $owner ?>创建的专题</div><?php if($subjects){ ?><div class="col-sm-6 text-right"><?php echo Html::a('<i class="icon-plus"></i>&nbsp;&nbsp;新建专题', 'index.php?r=subject/default/new', ['class' => 'create-anew']); ?></div><?php } ?></div>
+                <div class="row"><div class="col-sm-6"><?php echo $owner ?>创建的专题</div><?php if($subjects){ ?><div class="col-sm-6 text-right"><?php echo Html::a('<i class="icon-plus"></i>&nbsp;&nbsp;新建专题', '/subject/default/new', ['class' => 'create-anew']); ?></div><?php } ?></div>
             </div>
             <div class="createdsubject-middle">
                 <?php 
