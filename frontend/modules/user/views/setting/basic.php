@@ -19,7 +19,7 @@ $this->title = '编辑个人资料';
                 ]); ?>
                 <table class="form-table">
                     <tr style="border-bottom: none;">
-                        <td style="padding-left: 0;"><?php if($user['avatar']){$imgurl = $user['avatar'];}else{$imgurl = Yii::$app->params['avatar'];} ?><img src="<?php echo $imgurl;?>" class="user-avatar-big"></td>
+                        <td style="padding-left: 0;"><?php if($user['avatar']){$imgurl = $user['avatar'];}else{$imgurl = Yii::$app->params['avatar'];} ?><img src="<?php echo '/'.$imgurl;?>" class="user-avatar-big"></td>
                         <td><span class="radius-btn">更改头像</span><input type="file" class="form-file" id="btn-upload"></td>
                     </tr>
                     <tr>
@@ -72,7 +72,7 @@ $this->title = '编辑个人资料';
                     </tr>
                     <tr>
                         <td>微信二维码</td>
-                        <td class="qrcode-area"><div class="qrcode-img"><?php if($userinfor['qrcode']){ ?><img src="<?php echo $userinfor['qrcode']; ?>" class="qrcode-img-middle"><?php } ?></div><div class="upqrcode-area"><span class="radius-btn">更改图片</span><input type="file" class="form-file" id="btn-qrcodeupload"></div><div class="delete-area"><?php if($userinfor['qrcode']){?><span class="delete-btn" id="deleteqr-btn">删除</span><?php } ?></div></td>
+                        <td class="qrcode-area"><div class="qrcode-img"><?php if($userinfor['qrcode']){ ?><img src="<?php echo '/'.$userinfor['qrcode']; ?>" class="qrcode-img-middle"><?php } ?></div><div class="upqrcode-area"><span class="radius-btn">更改图片</span><input type="file" class="form-file" id="btn-qrcodeupload"></div><div class="delete-area"><?php if($userinfor['qrcode']){?><span class="delete-btn" id="deleteqr-btn">删除</span><?php } ?></div></td>
                     </tr>
                     <tr>
                         <td>个人简介</td>
