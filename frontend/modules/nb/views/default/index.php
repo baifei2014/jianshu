@@ -74,16 +74,16 @@ $this->title = '蒋龙豪 - 简书';
                 文集作者
             </div>
             <div class="peopleintro-middle">
-                <img src="<?php echo $articalset['auther']['avatar']; ?>" class="nbauther-avatar"><span class="nbauther-name"><?php echo $articalset['auther']['nickname']; ?></span>
+                <img src="<?php echo '/'.$articalset['auther']['avatar']; ?>" class="nbauther-avatar"><span class="nbauther-name"><?php echo $articalset['auther']['nickname']; ?></span>
             </div>
         </div>
     </div>
     </div>
 </div>
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript">
     $.ajax({
-        url: '<?php echo 'index.php?r=nb/default/added&id='.$articalset['id']; ?>',
+        url: '<?php echo '/nb/default/added&id='.$articalset['id']; ?>',
         type: 'get',
     }).always(function(result){
         $('.pager-content').html(result);

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 <div class="cont-acc">
     <div class="contacc-top">
         <div class="contacctop-left">
-            <img src="<?php echo $value['user']['avatar']; ?>">
+            <img src="<?php echo '/'.$value['user']['avatar']; ?>">
         </div>
         <div class="contacctop-right">
             <span class="contacctop-name"><?php echo $value['user']['nickname']; ?></span><span class="contacctop-behavior"><?php echo date('m月d H:i', $value['artical']['created_at']); ?></span>
@@ -24,7 +24,7 @@ use yii\helpers\Html;
                 </div>
             </div>
             <div class="contbccmiddle-right">
-                <img src="<?php echo $value['artical']['img']; ?>">
+                <img src="<?php echo '/'.$value['artical']['img']; ?>">
             </div>
         </div>
         <div class="contbccmiddle-bottom">

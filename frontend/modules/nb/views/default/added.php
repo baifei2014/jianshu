@@ -7,7 +7,7 @@ use yii\helpers\Html;
 <div class="cont-acc">
     <div class="contacc-top">
         <div class="contacctop-left">
-            <img src="<?php echo $value['user']['avatar']; ?>">
+            <img src="<?php echo '/'.$value['user']['avatar']; ?>">
         </div>
         <div class="contacctop-right">
             <span class="contacctop-name"><?php echo $value['user']['nickname']; ?></span><span class="contacctop-behavior"><?php echo date('m月d H:i', $value['created_at']); ?></span>
