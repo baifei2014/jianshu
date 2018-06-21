@@ -97,7 +97,7 @@ use yii\bootstrap\ActiveForm;
     }
     function showMessage(mess_position, avatar, message)
     {
-        $('.chat-content').append('<div class="message-list '+mess_position+'"><span><img src="'+avatar+'" class="chat-avatar-small"></span><p>'+message+'<i></i></p></div>');
+        $('.chat-content').append('<div class="message-list '+mess_position+'"><span><img src="'+'/'+avatar+'" class="chat-avatar-small"></span><p>'+message+'<i></i></p></div>');
         $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
     }
     /**
