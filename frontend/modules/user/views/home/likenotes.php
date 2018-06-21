@@ -107,7 +107,7 @@ $this->title = '蒋龙豪 - 简书';
                         echo Html::a('<i class="icon-comments icon-large"></i>', 'javascript:;', ['id' => 'qrcode']);
                 ?>
                     <div class="arrows" id="qrimg">
-                        <img src="<?php echo $userinfor['qrcode'] ?>" class="user-qrcode">
+                        <img src="<?php echo '/'.$userinfor['qrcode'] ?>" class="user-qrcode">
                     </div>
                 <?php } ?>
             </div>
@@ -144,7 +144,7 @@ $this->title = '蒋龙豪 - 简书';
                     }else{
                         foreach ($subjects as $key => $value) {
                 ?>
-                <li><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subject-img-link"><img src="<?php echo $value['labelimg']; ?>" class="subject-avatar-small"></a><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subjectname-link"><?php echo $value['name']; ?></a></li>
+                <li><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subject-img-link"><img src="<?php echo '/'.$value['labelimg']; ?>" class="subject-avatar-small"></a><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subjectname-link"><?php echo $value['name']; ?></a></li>
                 <?php
                         }
                     }
@@ -162,7 +162,7 @@ $this->title = '蒋龙豪 - 简书';
                 <?php 
                     foreach ($subjects as $key => $value) {
                 ?>
-                <li><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subject-img-link"><img src="<?php echo $value['labelimg']; ?>" class="subject-avatar-small"></a><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subjectname-link"><?php echo $value['name']; ?></a></li>
+                <li><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subject-img-link"><img src="<?php echo '/'.$value['labelimg']; ?>" class="subject-avatar-small"></a><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subjectname-link"><?php echo $value['name']; ?></a></li>
                 <?php
                     }
                 ?>
@@ -197,7 +197,7 @@ $this->title = '蒋龙豪 - 简书';
 <script type="text/javascript" src="/statics/js/jquery.js"></script>
 <script type="text/javascript">
     $.ajax({
-        url: '<?php echo '/user/home/likenotes&id='.$user['id']; ?>',
+        url: '<?php echo '/user/home/likenotes?id='.$user['id']; ?>',
         type: 'get',
     }).always(function(result){
         $('.pager-content').html(result);

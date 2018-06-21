@@ -140,12 +140,12 @@ $this->title = '蒋龙豪 - 简书';
                 <?php 
                     if(!$subjects){
                 ?>
-                <?php echo Html::a('<i class="icon-plus"></i>&nbsp;&nbsp;创建一个新专题', 'index.php?r=subject/default/new', ['class' => 'create-anew']); ?>
+                <?php echo Html::a('<i class="icon-plus"></i>&nbsp;&nbsp;创建一个新专题', '/subject/default/new', ['class' => 'create-anew']); ?>
                 <?php 
                     }else{
                         foreach ($subjects as $key => $value) {
                 ?>
-                <li><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subject-img-link"><img src="<?php echo $value['labelimg']; ?>" class="subject-avatar-small"></a><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subjectname-link"><?php echo $value['name']; ?></a></li>
+                <li><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['/subject/default/c', 'id'=>$value['code']]); ?>" class="subject-img-link"><img src="<?php echo '/'.$value['labelimg']; ?>" class="subject-avatar-small"></a><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['/subject/default/c', 'id'=>$value['code']]); ?>" class="subjectname-link"><?php echo $value['name']; ?></a></li>
                 <?php
                         }
                     }
@@ -163,7 +163,7 @@ $this->title = '蒋龙豪 - 简书';
                 <?php 
                     foreach ($subjects as $key => $value) {
                 ?>
-                <li><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subject-img-link"><img src="<?php echo $value['labelimg']; ?>" class="subject-avatar-small"></a><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subjectname-link"><?php echo $value['name']; ?></a></li>
+                <li><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subject-img-link"><img src="<?php echo '/'.$value['labelimg']; ?>" class="subject-avatar-small"></a><a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id'=>$value['code']]); ?>" class="subjectname-link"><?php echo $value['name']; ?></a></li>
                 <?php
                     }
                 ?>
