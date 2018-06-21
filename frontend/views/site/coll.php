@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
     <div class="collect-list">
         <div class="contacc-top">
             <div class="contacctop-left">
-                <img src="<?php echo $value['user']['avatar']; ?>">
+                <img src="<?php echo '/'.$value['user']['avatar']; ?>">
             </div>
             <div class="contacctop-right">
                 <span class="contacctop-name"><?php echo $value['user']['nickname']; ?></span><span class="contacctop-behavior"><?php echo date('m月d H:i', $value['created_at']); ?></span>
@@ -28,7 +28,7 @@ use yii\bootstrap\ActiveForm;
                     </div>
                 </div>
                 <div class="contbccmiddle-right">
-                    <img src="<?php echo $value['artical']['img']; ?>">
+                    <img src="<?php echo '/'.$value['artical']['img']; ?>">
                 </div>
             </div>
             <div class="contbccmiddle-bottom">
@@ -60,7 +60,7 @@ use yii\bootstrap\ActiveForm;
         formData.append('_csrf-frontend', csrfToken);
         formData.append('aid', aid);
         $.ajax({
-            url: '<?php echo 'index.php?r=site/cancelcoll' ?>',
+            url: '<?php echo '/site/cancelcoll' ?>',
             type: 'post',
             data: formData,
             cache: false,
@@ -68,7 +68,7 @@ use yii\bootstrap\ActiveForm;
             processData: false,
         }).always(function(result){
             $.ajax({
-                url: '<?php echo 'index.php?r=site/coll'; ?>',
+                url: '<?php echo '/site/coll'; ?>',
                 type: 'get',
             }).always(function(result){
                 $('.collect-middle').html(result);
