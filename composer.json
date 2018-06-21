@@ -19,7 +19,7 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "yiidoc/yii2-redactor": "*",
-        "pjkui/kindeditor": "dev-master",
+        "pjkui/kindeditor": "*",
         "kucha/ueditor": "*",
         "yiisoft/yii2-imagine": "^2.1",
         "kartik-v/yii2-markdown": "dev-master"

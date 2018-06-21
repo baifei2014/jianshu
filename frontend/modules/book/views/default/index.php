@@ -113,7 +113,7 @@ AppAsset::register($this);
 </div>
 <?php $this->endBody() ?>
 </body>
-<script type="text/javascript" src="statics/js/jquery.js"></script>
+<script type="text/javascript" src="/statics/js/jquery.js"></script>
 <script type="text/javascript">
     $('#add-set')
     .click(function(){
@@ -147,7 +147,7 @@ AppAsset::register($this);
         formData.append('_csrf-frontend', csrfToken);
         formData.append('articalset', articalset);
         $.ajax({
-            url: '<?php echo 'index.php?r=book/default/articalset' ?>',
+            url: '<?php echo '/book/default/articalset' ?>',
             type: 'post',
             data: formData,
             cache: false,

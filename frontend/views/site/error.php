@@ -11,7 +11,7 @@ $this->title = '您要找的页面不存在 - 简书';
 ?>
 <div class="site-error">
 
-    <img src="statics/images/error.jpg" class="error-notfound-img">
+    <img src="/statics/images/error.jpg" class="error-notfound-img">
 
     <h3 class="error-name">您要找的页面不存在</h3>
 
