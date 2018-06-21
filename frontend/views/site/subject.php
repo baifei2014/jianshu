@@ -13,7 +13,7 @@ use yii\bootstrap\ActiveForm;
                 <div class="artical-title">
                     <div class="row">
                         <div class="col-bm-2">
-                            <img src="<?php echo $value['labelimg'] ?>" class="subject-img-small">
+                            <img src="<?php echo '/'.$value['labelimg'] ?>" class="subject-img-small">
                         </div>
                         <div class="col-bm-10">
                             <dd class="subjectplus-name"><?php echo $value['name']; ?></dd>
@@ -51,7 +51,7 @@ use yii\bootstrap\ActiveForm;
         formData.append('sid', sid);
         formData.append('aid', aid);
         $.ajax({
-            url: '<?php echo 'index.php?r=site/includea' ?>',
+            url: '<?php echo '/site/includea' ?>',
             type: 'post',
             data: formData,
             cache: false,
