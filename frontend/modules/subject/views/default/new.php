@@ -14,7 +14,7 @@ $this->title = '简书';
         ?>
         <table class="subject-table">
             <tr>
-                <td><img src="statics/images/placeholder.png" class="subject-img"></td>
+                <td><img src="/statics/images/placeholder.png" class="subject-img"></td>
                 <td><span class="radius-btn">上传专题封面</span><?php echo $form->field($model, 'file')->fileInput(['class' => 'form-file', 'id' => 'btn-upload'])->label(false); ?></td>
             </tr>
             <tr>
@@ -43,7 +43,7 @@ $this->title = '简书';
 </div>
 <div class="alert-infor">
 </div>
-<script type="text/javascript" src="statics/js/jquery.js"></script>
+<script type="text/javascript" src="/statics/js/jquery.js"></script>
 <script type="text/javascript">
     $('#btn-upload')
     .change(function(){
