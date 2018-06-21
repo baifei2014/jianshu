@@ -12,7 +12,7 @@ use yii\helpers\Html;
         <div class="col-sm-8">
             <div class="focususer-infor">
                 <div class="focususerinfor-left">
-                    <?php echo Html::a('<img src="'.$value['subject']['labelimg'].'" class="focussubject-img-middle">', Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id' => $value['subject']['code']])) ?>
+                    <?php echo Html::a('<img src="'.'/'.$value['subject']['labelimg'].'" class="focussubject-img-middle">', Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id' => $value['subject']['code']])) ?>
                 </div>
                 <div class="focususerinfor-right">
                     <span><?php echo Html::a($value['subject']['name'], Yii::$app->urlManager->createAbsoluteUrl(['subject/default/c', 'id' => $value['subject']['code']]), ['class' => 'userfocus-name']); ?></span>
@@ -96,7 +96,7 @@ use yii\helpers\Html;
         formData.append('uid', id);
         formData.append('type', type);
         $.ajax({
-            url: '<?php echo 'index.php?r=user/home/ofocus' ?>',
+            url: '<?php echo '/user/home/ofocus' ?>',
             type: 'post',
             data: formData,
             cache: false,
