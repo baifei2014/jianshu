@@ -10,7 +10,7 @@ $this->title = '蒋龙豪 - 简书';
             <div class="row userindex-lefttop">
                 <div class="col-sm-2">
                     <div class="user-img">
-                        <img src="<?php echo $user['avatar']; ?>" class="user-avatar-big">
+                        <img src="<?php echo '/'.$user['avatar']; ?>" class="user-avatar-big">
                     </div>
                 </div>
                 <div class="col-sm-5">
@@ -52,7 +52,7 @@ $this->title = '蒋龙豪 - 简书';
 </div>
 <script type="text/javascript">
     $.ajax({
-        url: '<?php echo 'index.php?r=subscript/default/catelog&keyword='.'user_id'.'&id='.$user['id']; ?>',
+        url: '<?php echo '/subscript/default/catelog?keyword='.'user_id'.'?id='.$user['id']; ?>',
         type: 'get',
     }).always(function(result){
         $('.pager-content').html(result);

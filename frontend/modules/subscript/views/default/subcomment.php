@@ -7,7 +7,7 @@ use yii\helpers\Html;
 <div class="cont-acc">
     <div class="contacc-top">
         <div class="contacctop-left">
-            <?php echo Html::a('<img src="'.$value['user']['avatar'].'">', Yii::$app->urlManager->createAbsoluteUrl(['user/home/u', 'id' => $value['user']['id']])) ?>
+            <?php echo Html::a('<img src="'.'/'.$value['user']['avatar'].'">', Yii::$app->urlManager->createAbsoluteUrl(['user/home/u', 'id' => $value['user']['id']])) ?>
         </div>
         <div class="contacctop-right">
             <span class="contacctop-name"><?php echo Html::a($value['user']['nickname'], Yii::$app->urlManager->createAbsoluteUrl(['user/home/u', 'id' => $value['user']['id']])) ?></span><span class="contacctop-behavior"><?php echo date('m月d H:i', $value['artical']['created_at']); ?></span>
@@ -24,7 +24,7 @@ use yii\helpers\Html;
                 </div>
             </div>
             <div class="contbccmiddle-right">
-                <img src="<?php echo $value['artical']['img']; ?>">
+                <img src="<?php echo '/'.$value['artical']['img']; ?>">
             </div>
         </div>
         <div class="contbccmiddle-bottom">
