@@ -13,7 +13,7 @@ use yii\helpers\Html;
             <div class="comm-toper"> 
                 <div class="row">
                     <div class="col-sm-1">
-                        <?php echo Html::a('<img src="'.$value['user']['avatar'].'" class="user-avatar-small">', Yii::$app->urlManager->createAbsoluteUrl(['user/home/u', 'id' => $value['user']['id']])) ?>
+                        <?php echo Html::a('<img src="'.'/'.$value['user']['avatar'].'" class="user-avatar-small">', Yii::$app->urlManager->createAbsoluteUrl(['user/home/u', 'id' => $value['user']['id']])) ?>
                     </div>
                     <div class="col-sm-11">
                         <dd class="comm-infor">

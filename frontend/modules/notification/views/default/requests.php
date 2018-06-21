@@ -25,7 +25,7 @@ use yii\helpers\Html;
             <div class="requestlist-area">
                 <div class="row">
                     <div class="col-sm-1">
-                        <?php echo Html::a('<img src="'.$value['labelimg'].'" class="subject-img-middle">', ['default/untreated', 'id' => $value['id'], 'name' => $value['name']], ['class' => 'request-infor']) ?>
+                        <?php echo Html::a('<img src="'.'/'.$value['labelimg'].'" class="subject-img-middle">', ['default/untreated', 'id' => $value['id'], 'name' => $value['name']], ['class' => 'request-infor']) ?>
                     </div>
                     <div class="col-sm-11">
                         <?php 

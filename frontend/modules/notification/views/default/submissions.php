@@ -27,7 +27,7 @@ use yii\bootstrap\ActiveForm;
     <div class="cont-acc">
         <div class="contacc-top">
             <div class="contacctop-left">
-                <img src="<?php echo $value['user']['avatar']; ?>">
+                <img src="<?php echo '/'.$value['user']['avatar']; ?>">
             </div>
             <div class="contacctop-right">
                 <span class="contacctop-name"><?php echo $value['user']['nickname']; ?></span><span class="contacctop-behavior"><?php echo Yii::$app->formatter->asRelativeTime($value['created_at']); ?></span>
@@ -44,7 +44,7 @@ use yii\bootstrap\ActiveForm;
                     </div>
                 </div>
                 <div class="contbccmiddle-right">
-                    <img src="<?php echo $value['artical']['img']; ?>">
+                    <img src="<?php echo '/'.$value['artical']['img']; ?>">
                 </div>
             </div>
             <div class="contbccmiddle-bottom">
@@ -128,7 +128,7 @@ use yii\bootstrap\ActiveForm;
         formData.append('aid', aid);
         formData.append('resu', resu);
         $.ajax({
-            url: '<?php echo 'index.php?r=notification/default/dealrequest' ?>',
+            url: '<?php echo '/notification/default/dealrequest' ?>',
             type: 'post',
             data: formData,
             cache: false,
@@ -154,7 +154,7 @@ use yii\bootstrap\ActiveForm;
     }
     $('input[name="untreated-submissions"]')
     .click(function(){
-        var url = '<?php echo 'index.php?r=notification/default/untreated&id='.$data['id'].'&name='.$data['name'] ?>';
+        var url = '<?php echo '/notification/default/untreated?id='.$data['id'].'?name='.$data['name'] ?>';
         $.ajax({
             url: url,
             type: 'get',
