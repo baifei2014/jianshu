@@ -11,7 +11,7 @@ $this->title = '蒋龙豪 - 简书';
         <div class="row userindex-lefttop">
             <div class="col-sm-2">
                 <?php if($user){$imgurl = $user['avatar'];}else{$imgurl = Yii::$app->params['avatar'];} ?>
-                <?php echo Html::a('<img src="'.$imgurl.'" class="user-avatar-big">', ['home/u', 'id' => $user['id']]) ?>
+                <?php echo Html::a('<img src="'.'/'.$imgurl.'" class="user-avatar-big">', ['home/u', 'id' => $user['id']]) ?>
             </div>
             <div class="col-sm-5">
                 <div class="pager-acc">
@@ -108,7 +108,7 @@ $this->title = '蒋龙豪 - 简书';
                         echo Html::a('<i class="icon-comments icon-large"></i>', 'javascript:;', ['id' => 'qrcode']);
                 ?>
                     <div class="arrows" id="qrimg">
-                        <img src="<?php echo $userinfor['qrcode'] ?>" class="user-qrcode">
+                        <img src="<?php echo '/'.$userinfor['qrcode'] ?>" class="user-qrcode">
                     </div>
                 <?php } ?>
             </div>
@@ -195,10 +195,10 @@ $this->title = '蒋龙豪 - 简书';
     </div>
     </div>
 </div>
-<script type="text/javascript" src="statics/js/jquery.js"></script>
+<script type="text/javascript" src="/statics/js/jquery.js"></script>
 <script type="text/javascript">
     $.ajax({
-        url: '<?php echo 'index.php?r=user/home/subscriptions&id='.$user['id']; ?>',
+        url: '<?php echo '/user/home/subscriptions?id='.$user['id']; ?>',
         type: 'get',
     }).always(function(result){
         $('.pager-content').html(result);
@@ -228,7 +228,7 @@ $this->title = '蒋龙豪 - 简书';
         var uid = '<?php echo $user['id']; ?>';
         formData.append('uid', uid);
         $.ajax({
-            url: '<?php echo 'index.php?r=user/home/ofocus' ?>',
+            url: '<?php echo '/user/home/ofocus' ?>',
             type: 'post',
             data: formData,
             cache: false,
@@ -266,7 +266,7 @@ $this->title = '蒋龙豪 - 简书';
         formData.append('_csrf-frontend', csrfToken);
         formData.append('uid', id);
         $.ajax({
-            url: '<?php echo 'index.php?r=user/home/ofocus' ?>',
+            url: '<?php echo '/user/home/ofocus' ?>',
             type: 'post',
             data: formData,
             cache: false,
@@ -312,7 +312,7 @@ $this->title = '蒋龙豪 - 简书';
         formData.append('_csrf-frontend', csrfToken);
         formData.append('uid', id);
         $.ajax({
-            url: '<?php echo 'index.php?r=user/home/ofocus' ?>',
+            url: '<?php echo '/user/home/ofocus' ?>',
             type: 'post',
             data: formData,
             cache: false,
