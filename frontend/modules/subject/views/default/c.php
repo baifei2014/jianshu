@@ -10,7 +10,7 @@ $this->title = '蒋龙豪 - 简书';
         <div class="row userindex-lefttop">
             <div class="col-sm-2">
                 <div class="subjects-img">
-                    <img src="<?php echo $subject['labelimg']; ?>" class="subject-labelimg">
+                    <img src="<?php echo '/'.$subject['labelimg']; ?>" class="subject-labelimg">
                 </div>
             </div>
             <div class="col-sm-5">
@@ -85,7 +85,7 @@ $this->title = '蒋龙豪 - 简书';
                 管理员
             </div>
             <div class="peopleintro-middle">
-                <img src="<?php echo $subject['admin']['avatar']; ?>" class="nbauther-avatar"><span class="nbauther-name"><?php echo $subject['admin']['nickname']; ?><?php if(Yii::$app->user->identity->id == $subject['uid']){ ?><span class="subject-tag">创建者</span><?php } ?></span>
+                <img src="<?php echo '/'.$subject['admin']['avatar']; ?>" class="nbauther-avatar"><span class="nbauther-name"><?php echo $subject['admin']['nickname']; ?><?php if(Yii::$app->user->identity->id == $subject['uid']){ ?><span class="subject-tag">创建者</span><?php } ?></span>
             </div>
         </div>
         <?php if(!Yii::$app->user->isGuest){ 
@@ -139,7 +139,7 @@ $this->title = '蒋龙豪 - 简书';
         </span>
     </div>
 </div>
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript">
     $('.win-back').css("height", window.innerHeight);
     $.ajax({
