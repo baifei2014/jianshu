@@ -100,7 +100,7 @@ $this->title = '编辑个人资料';
 </div>
 <div class="alert-infor">
 </div>
-<script type="text/javascript" src="statics/js/jquery.js"></script>
+<script type="text/javascript" src="/statics/js/jquery.js"></script>
 <script type="text/javascript">
     $('#btn-upload')
     .change(function(){
@@ -124,7 +124,7 @@ $this->title = '编辑个人资料';
             var imgurl = e.target.result;
             formData.append('imgurl', imgurl);
             $.ajax({
-                url: '<?php echo 'index.php?r=user/setting/index' ?>',
+                url: '<?php echo '/user/setting/index' ?>',
                 type: 'post',
                 data: formData,
                 cache: false,
@@ -154,7 +154,7 @@ $this->title = '编辑个人资料';
         var id = '<?php echo $user['id']; ?>';
         formData.append('id', id);
         $.ajax({
-            url: '<?php echo 'index.php?r=user/setting/deleteqr' ?>',
+            url: '<?php echo '/user/setting/deleteqr' ?>',
             type: 'post',
             data: formData,
             cache: false,
@@ -192,7 +192,7 @@ $this->title = '编辑个人资料';
             var imgurl = e.target.result;
             formData.append('imgurl', imgurl);
             $.ajax({
-                url: '<?php echo 'index.php?r=user/setting/qrcode' ?>',
+                url: '<?php echo '/user/setting/qrcode' ?>',
                 type: 'post',
                 data: formData,
                 cache: false,
@@ -317,7 +317,7 @@ $this->title = '编辑个人资料';
         formData.append('_csrf-frontend', csrfToken);
         formData.append('value', value);
         $.ajax({
-            url: '<?php echo 'index.php?r=user/setting/' ?>'+url,
+            url: '<?php echo '/user/setting/' ?>'+url,
             type: 'post',
             data: formData,
             cache: false,
