@@ -55,7 +55,7 @@ class SettingController extends Controller
             $formdata = Yii::$app->request->post();
             $time = time();
             if($response = Image::crop($formdata['imgurl'], $time)){
-                if(UserinforForm::saveAvatar($filename = '/statics/images/avatar/'.$time.'.jpg')){
+                if(UserinforForm::saveAvatar($filename = 'statics/images/avatar/'.$time.'.jpg')){
                     return json_encode($response);
                 }
             }
@@ -67,7 +67,7 @@ class SettingController extends Controller
             $formdata = Yii::$app->request->post();
             $time = time();
             if($response = Image::qrCrop($formdata['imgurl'], $time)){
-                if(UserinforForm::saveQrcode($filename = '/statics/images/qrcode/'.$time.'.jpg')){
+                if(UserinforForm::saveQrcode($filename = 'statics/images/qrcode/'.$time.'.jpg')){
                     return json_encode($response);
                 }
             }
