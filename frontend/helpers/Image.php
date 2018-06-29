@@ -56,7 +56,7 @@ class Image
         $croped_img = imagecrop($source_image, ['x' => $cropx1, 'y' => $cropy1, 'width' => $cropw, 'height' => $croph]);
         $final_image = imagecreatetruecolor($cropimg_w, $cropimg_w);
         imagecopyresampled($final_image, $croped_img, 0, 0, 0, 0, $cropimg_w, $cropimg_w, $cropw, $croph);
-        $output_filename = 'statics/images/avatar/'.$time.'.jpg';
+        $output_filename = '/statics/images/avatar/'.$time.'.jpg';
         if(imagejpeg($final_image, $output_filename, $img_quality)){
             $response = [
                 'status' => 'success',
@@ -114,7 +114,7 @@ class Image
         $croped_img = imagecrop($source_image, ['x' => $cropx1, 'y' => $cropy1, 'width' => $cropw, 'height' => $croph]);
         $final_image = imagecreatetruecolor($cropimg_w, $cropimg_w);
         imagecopyresampled($final_image, $croped_img, 0, 0, 0, 0, $cropimg_w, $cropimg_w, $cropw, $croph);
-        $output_filename = 'statics/images/qrcode/'.$time.'.jpg';
+        $output_filename = '/statics/images/qrcode/'.$time.'.jpg';
         if(imagejpeg($final_image, $output_filename, $img_quality)){
             $response = [
                 'status' => 'success',
