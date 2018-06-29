@@ -26,7 +26,7 @@ use yii\helpers\Html;
                 <?php echo $value['result']['artical']['summary']; ?>
             </div>
             <div class="contaccmiddlemiddle-bottom">
-                <?php echo Html::a($value['result']['artical']['user']['nickname'], Yii::$app->urlManager->createAbsoluteUrl(['home/u', 'id' => $value['result']['artical']['user']['id']]), ['class' => 'auther-name']); ?><span class="articalinfor-area"><span class="artical-infor"><i class="icon-eye-open"></i>&nbsp;<?php echo $value['result']['articalinfor']['brower']; ?></span><span class="artical-infor"><i class="icon-comments"></i>&nbsp;<?php echo $value['result']['articalinfor']['comment']; ?></span><span class="artical-infor"><i class="icon-heart"></i>&nbsp;<?php echo $value['result']['articalinfor']['like']; ?></span></span>
+                <?php echo Html::a($value['result']['artical']['user']['nickname'], Yii::$app->urlManager->createAbsoluteUrl(['user/home/u', 'id' => $value['result']['artical']['user']['id']]), ['class' => 'auther-name']); ?><span class="articalinfor-area"><span class="artical-infor"><i class="icon-eye-open"></i>&nbsp;<?php echo $value['result']['articalinfor']['brower']; ?></span><span class="artical-infor"><i class="icon-comments"></i>&nbsp;<?php echo $value['result']['articalinfor']['comment']; ?></span><span class="artical-infor"><i class="icon-heart"></i>&nbsp;<?php echo $value['result']['articalinfor']['like']; ?></span></span>
             </div>
         </div>
         <?php 
