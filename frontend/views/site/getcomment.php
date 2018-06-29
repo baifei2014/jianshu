@@ -6,7 +6,7 @@ use frontend\helpers\LinkPagerC;
 ?>
     <div class="comment-commentd-list">
         <div class="comment-avatar">
-            <img src="<?php echo $value['user']['avatar'] ?>">
+            <img src="<?php echo '/'.$value['user']['avatar'] ?>">
         </div>
         <div class="comment-maincontent">
             <div class="comment-main-levo">
