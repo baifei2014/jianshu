@@ -123,10 +123,10 @@ $this->title = $user['nickname'].' - 简书';
                 if($userinfor['web'] || $userinfor['qrcode']){
             ?>
             <div class="peopleintro-bottom">
-                <?php if($userinfor['web']){ ?><?php echo Html::a('<i class="icon-home icon-large"></i>', [$userinfor['web']])?><?php } ?>
+                <?php if($userinfor['web']){ ?><a href="<?php echo $userinfor['web'] ?>"><i class="icon-home icon-large"></i></a><?php } ?>
                 <?php 
                     if($userinfor['qrcode']){
-                        echo Html::a('<i class="icon-comments icon-large"></i><div class="arrows" id="qrimg"><img src="'.$userinfor['qrcode'].'" class="user-qrcode"></div>', 'javascript:;', ['id' => 'qrcode', 'class' => 'weixinqrcode']);
+                        echo Html::a('<i class="icon-comments icon-large"></i><div class="arrows" id="qrimg"><img src="'.'/'.$userinfor['qrcode'].'" class="user-qrcode"></div>', 'javascript:;', ['id' => 'qrcode', 'class' => 'weixinqrcode']);
                 ?>
                 <?php } ?>
             </div>
