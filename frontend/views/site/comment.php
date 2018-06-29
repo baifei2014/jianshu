@@ -10,7 +10,7 @@ if(!Yii::$app->user->isGuest){
     $user_id = null;
 }
 ?>
-<form class="new-comment" action="/site/comment&a_id=<?php echo $a_id; ?>&user_id=<?php echo $user_id; ?>" method="post">
+<form class="new-comment" action="/site/comment?a_id=<?php echo $a_id; ?>&user_id=<?php echo $user_id; ?>" method="post">
     <div class="comment-textform">
         <div class="comment-textarea">
             <input type="hidden" name="_csrf-frontend" value="<?= Yii::$app->request->csrfToken ?>" />
