@@ -47,7 +47,7 @@ $this->title = '爱阅';
                 ?>
                     <div class="content-list">
                         <div class="list-top">
-                            <a href=""><img src="<?php echo '/'.$value['user']['avatar'] ?>">&nbsp;&nbsp;&nbsp;<?php echo Html::a($value['user']['nickname'], ['user/home/index', 'id' => $value['user']['id']]); ?></a><span><?php echo Yii::$app->formatter->asRelativeTime($value['created_at']); ?></span>
+                            <a href=""><img src="<?php echo '/'.$value['user']['avatar'] ?>">&nbsp;&nbsp;&nbsp;<?php echo Html::a($value['user']['nickname'], ['user/home/u', 'id' => $value['user']['id']]); ?></a><span><?php echo Yii::$app->formatter->asRelativeTime($value['created_at']); ?></span>
                         </div>
                         <div class="list-middle">
                             <div class="row">
