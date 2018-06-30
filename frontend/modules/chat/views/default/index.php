@@ -204,7 +204,6 @@ use yii\bootstrap\ActiveForm;
                 }else{
                     var mess_position = 'left-message';
                 }
-                console.log($('.chat-content').children('.message-list').length)
                 $('.chat-content').prepend('<div class="message-list '+mess_position+'"><span><img src="'+'/' + infos[i]['avatar'] + '" class="chat-avatar-small"></span><p>'+infos[i]['message']+'<i></i></p></div>');
             }
             if(result['code'] == 1) {
