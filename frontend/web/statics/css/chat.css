@@ -262,3 +262,14 @@
     right:-6px;
     top:12px
 }
+
+.load-more{
+    width: 100%;
+    text-align: center;
+    color: #007fff;
+    cursor: pointer;
+    font-size: 15px;
+}
+.load-more span:hover{
+    text-decoration: underline;
+}

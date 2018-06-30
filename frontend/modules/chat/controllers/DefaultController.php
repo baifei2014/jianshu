@@ -7,6 +7,7 @@ use yii\web\Controller;
 use common\models\User;
 use frontend\helpers\Robot;
 use frontend\helpers\SentMessage;
+use frontend\helpers\gateway\gatewayclient\vendor\workerman\gatewayclient\Gateway;
 
 /**
  * Default controller for the `chat` module
@@ -30,7 +31,23 @@ class DefaultController extends Controller
     public function actionBind()
     {
         $data = Yii::$app->request->post();
-        return $this->render('bind', ['client_id' => $data['id']]);
+        // 设置GatewayWorker服务的Register服务ip和端口，请根据实际情况改成实际值
+        Gateway::$registerAddress = '127.0.0.1:1238';
+
+        // 假设用户已经登录，用户uid和群组id在session中
+        // $uid      = Yii::$app->user->identity->id;
+        $group_id = 123456;
+        $client_id = $data['id'];
+        // $group_id = $_SESSION['group'];
+        // client_id与uid绑定
+        // Gateway::bindUid($client_id, $uid);
+        // 加入某个群组（可调用多次加入多个群组）
+        if(Gateway::joinGroup($client_id, $group_id)) {
+            return json_encode([
+                'code' => 1,
+                'msg' => '连接成功'
+            ]);
+        }
     }
     public function actionSentmessage()
     {
@@ -43,7 +60,7 @@ class DefaultController extends Controller
             'nickname' => $user['nickname'],
         ];
         SentMessage::sendToGroup(123456, $infor);
-        if(self::ROBOT != false){
+        if(self::ROBOT){
             $infor = $message = Robot::robotReply($data['message'], $user['id']);
             SentMessage::sendToGroup(123456, $infor);
         }
