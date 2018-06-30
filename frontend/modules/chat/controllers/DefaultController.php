@@ -95,7 +95,7 @@ class DefaultController extends Controller
 
             $len = Yii::$app->redis->llen('info');
 
-            if($page > $len) {
+            if($page > $len || $len == 0) {
                 return json_encode([
                     'code' => 0,
                     'msg' => '没有更多消息'
