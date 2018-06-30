@@ -268,8 +268,16 @@
     text-align: center;
     color: #007fff;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 1em;
+    margin-bottom: 10px;
 }
 .load-more span:hover{
     text-decoration: underline;
+}
+
+.load-info{
+    width: 100%;
+    text-align: center;
+    color: #bec0c2;
+    font-size: 0.9em;
 }
