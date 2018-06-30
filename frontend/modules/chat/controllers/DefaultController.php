@@ -53,13 +53,24 @@ class DefaultController extends Controller
     {
         $data = Yii::$app->request->post();
         $user = User::find()->where(['id' => $data['id']])->one();
-        $infor = [
+        $info = [
             'uid' => $user['id'],
             'message' => $data['message'],
             'avatar' => $user['avatar'],
             'nickname' => $user['nickname'],
+            'created_at' => time(),
         ];
-        SentMessage::sendToGroup(123456, $infor);
+        SentMessage::sendToGroup(123456, $info);
+
+        $len = Yii::$app->redis->lpush('info', json_encode($info));
+        if(Yii::$app->redis->llen('info') > 50) {
+            Yii::$app->redis->ltrim('info', 0, 49);
+        }
+
+        return json_encode([
+            'code' => 1,
+            'msg' => $len
+        ]);
         if(self::ROBOT){
             $infor = $message = Robot::robotReply($data['message'], $user['id']);
             SentMessage::sendToGroup(123456, $infor);
@@ -74,5 +85,35 @@ class DefaultController extends Controller
     public function actionTest()
     {
         return $this->render('test');
+    }
+    public function actionGetMessage()
+    {
+        if(Yii::$app->request->isAjax) {
+            $data = Yii::$app->request->post();
+
+            $page = $data['info_page'];
+
+            $len = Yii::$app->redis->llen('info');
+
+            if($page > $len) {
+                return json_encode([
+                    'code' => 0,
+                    'msg' => '没有更多消息'
+                ]);
+            }
+
+            $infos_json = Yii::$app->redis->lrange('info', $page, $page + 9);
+
+            $infos = [];
+            foreach ($infos_json as  $info) {
+                $infos[] = json_decode($info);
+            }
+            $reverse_infos = array_reverse($infos);
+
+            return json_encode([
+                'code' => 1,
+                'infos' => $reverse_infos
+            ]);
+        }
     }
 }
