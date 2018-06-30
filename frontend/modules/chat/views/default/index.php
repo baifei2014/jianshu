@@ -65,6 +65,7 @@ use yii\bootstrap\ActiveForm;
 </div>
 <script src="/js/jquery.js"></script>
 <script type="text/javascript">
+    setCookie('info_page', "", -1); 
     $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
     var id = '<?php echo Yii::$app->user->identity->id ?>';
     $('input[name="message-form"]')
@@ -109,7 +110,7 @@ use yii\bootstrap\ActiveForm;
      * start_gateway.php 中需要指定websocket协议，像这样
      * $gateway = new Gateway(websocket://0.0.0.0:7272);
     */
-    ws = new WebSocket("ws://127.0.0.1:1235");
+    ws = new WebSocket("ws://182.254.153.39:1235");
     // 服务端主动推送消息时会触发这里的onmessage
     
     ws.onmessage = function(e){
@@ -155,4 +156,53 @@ use yii\bootstrap\ActiveForm;
         }).always(function(result){
         });
     }
+    $('.load-more-btn')
+    .click(function(){
+        var formData = new FormData();
+        var csrfToken = $('input[name="_csrf-frontend"]').val();
+        formData.append('_csrf-frontend', csrfToken);
+
+        if(getCookie('info_page')){
+            var page =  getCookie('info_page');
+            setCookie('info_page', page + 10)
+        }else{
+            var page = 0;
+            setCookie('info_page', 10)
+        }
+
+        formData.append('info_page', page);
+        var id = '<?php echo Yii::$app->user->identity->id ?>';
+        formData.append('id', id);
+
+        $.ajax({
+            url: '/chat/default/get-message',
+            type: 'post',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+        }).always(function(result){
+            console.log(result)
+        });
+    })
+    function getCookie(c_name) {
+        if (document.cookie.length > 0) {
+            c_start = document.cookie.indexOf(c_name + "=")
+            if (c_start != -1) {
+                c_start = c_start + c_name.length + 1
+                c_end = document.cookie.indexOf(";", c_start)
+                if (c_end == -1)
+                    c_end = document.cookie.length
+                return unescape(document.cookie.substring(c_start, c_end))
+            }
+        }
+        return ""
+    }
+
+    function setCookie(name, value) {
+        var exp = new Date();
+        exp.setTime(exp.getTime() + 1 * 24 * 60 * 60 * 1000); //3天过期  
+        document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + exp.toGMTString() + ";path=/";
+        return true;
+    };
 </script>
