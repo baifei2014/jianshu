@@ -206,6 +206,10 @@ use yii\bootstrap\ActiveForm;
                 }
                 $('.chat-content').prepend('<div class="message-list '+mess_position+'"><span><img src="'+'/' + infos[i]['avatar'] + '" class="chat-avatar-small"></span><p>'+infos[i]['message']+'<i></i></p></div>');
             }
+
+            var creaetd_at = formatDate(infos[infos.length - 1]['created_at'])
+            $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
+
             if(result['code'] == 1) {
                 $('.chat-content').prepend('<div class="load-more"><span class="load-more-btn">点击加载更多</span></div>')
                 $(document).on('click', '.load-more-btn', getMessage)
