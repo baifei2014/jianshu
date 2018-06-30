@@ -32,7 +32,7 @@ use yii\bootstrap\ActiveForm;
             <div class="chat-body">
                 <div class="main-body">
                     <div class="chat-content" id="chat-main">
-                        <div class="message-list load-more">
+                        <div class="load-more">
                             <span class="load-more-btn">点击加载更多</span>
                         </div>
                     </div>
@@ -115,7 +115,7 @@ use yii\bootstrap\ActiveForm;
     
     ws.onmessage = function(e){
         // json数据转换成js对象
-        console.log(e);
+        // console.log(e);
         var data = eval("("+e.data+")");
      
         var type = data.type || '';
@@ -156,8 +156,9 @@ use yii\bootstrap\ActiveForm;
         }).always(function(result){
         });
     }
-    $('.load-more-btn')
-    .click(function(){
+    $(document).on('click', '.load-more-btn', getMessage)
+    function getMessage(){
+        $('.chat-content').children('.load-more').remove()
         var formData = new FormData();
         var csrfToken = $('input[name="_csrf-frontend"]').val();
         formData.append('_csrf-frontend', csrfToken);
@@ -181,10 +182,48 @@ use yii\bootstrap\ActiveForm;
             cache: false,
             contentType: false,
             processData: false,
-        }).always(function(result){
-            console.log(result)
+        }).always(function(response){
+            var result = JSON.parse(response)
+
+            if(!result['code']) {
+                return;
+            }
+            if(page == 0) {
+                $('.chat-content').prepend('<div class="load-info"><span>以上是历史消息</span></div>')
+            }
+            var infos = result['infos']
+            for (var i = 0; i < infos.length; i++) {
+                if(i != 0) {
+                    if((infos[i-1]['created_at'] - infos[i]['created_at']) > 1500) {
+                        var creaetd_at = formatDate(infos[i-1]['created_at'])
+                        $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
+                    }
+                }
+                if(infos[i]['uid'] == id){
+                    var mess_position = 'right-message';
+                }else{
+                    var mess_position = 'left-message';
+                }
+                console.log($('.chat-content').children('.message-list').length)
+                $('.chat-content').prepend('<div class="message-list '+mess_position+'"><span><img src="'+'/' + infos[i]['avatar'] + '" class="chat-avatar-small"></span><p>'+infos[i]['message']+'<i></i></p></div>');
+            }
+            if(result['code'] == 1) {
+                $('.chat-content').prepend('<div class="load-more"><span class="load-more-btn">点击加载更多</span></div>')
+                $(document).on('click', '.load-more-btn', getMessage)
+            }
         });
-    })
+    }
+    function formatDate(now) {
+        var now = new Date(now*1000)
+    　　var year = now.getFullYear(),
+    　　month = now.getMonth() + 1,
+    　　date = now.getDate(),
+    　　hour = now.getHours(),
+    　　minute = now.getMinutes(),
+    　　second = now.getSeconds();
+     
+    　　return year + "/" + month + "/" + date + " " + hour + ":" + minute + ":" + second;
+    }
     function getCookie(c_name) {
         if (document.cookie.length > 0) {
             c_start = document.cookie.indexOf(c_name + "=")

@@ -106,14 +106,21 @@ class DefaultController extends Controller
 
             $infos = [];
             foreach ($infos_json as  $info) {
-                $infos[] = json_decode($info);
+                $pend_info = json_decode($info);
+                $infos[] = $pend_info;
             }
-            $reverse_infos = array_reverse($infos);
 
-            return json_encode([
-                'code' => 1,
-                'infos' => $reverse_infos
-            ]);
+            if($page + 10 >= $len) {
+                return json_encode([
+                    'code' => -1,
+                    'infos' => $infos
+                ]);
+            } else {
+                return json_encode([
+                    'code' => 1,
+                    'infos' => $infos
+                ]);
+            }
         }
     }
 }
