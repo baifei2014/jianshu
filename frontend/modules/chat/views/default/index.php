@@ -208,7 +208,6 @@ use yii\bootstrap\ActiveForm;
             }
 
             var creaetd_at = formatDate(infos[infos.length - 1]['created_at'])
-            console.log(infos[infos.length - 1]['created_at'])
             $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
 
             if(result['code'] == 1) {
