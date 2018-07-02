@@ -212,7 +212,6 @@ use yii\bootstrap\ActiveForm;
 
             if(result['code'] == 1) {
                 $('.chat-content').prepend('<div class="load-more"><span class="load-more-btn">点击加载更多</span></div>')
-                $(document).on('click', '.load-more-btn', getMessage)
             }
         });
     }
