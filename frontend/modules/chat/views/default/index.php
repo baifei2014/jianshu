@@ -165,7 +165,7 @@ use yii\bootstrap\ActiveForm;
 
         if(getCookie('info_page')){
             var page =  getCookie('info_page');
-            setCookie('info_page', page + 10)
+            setCookie('info_page', parseInt(page) + parseInt(10))
         }else{
             var page = 0;
             setCookie('info_page', 10)
