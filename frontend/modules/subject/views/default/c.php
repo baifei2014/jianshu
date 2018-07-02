@@ -140,6 +140,12 @@ $this->title = '蒋龙豪 - 简书';
     </div>
 </div>
 <script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/partical.js"></script>
+<script type="text/javascript" src="/js/focus.js"></script>
+<script type="text/javascript" src="/js/comment.js"></script>
+<script type="text/javascript" src="/js/pager.js"></script>
+<script type="text/javascript" src="/js/reply.js"></script>
+<script type="text/javascript" src="/js/tab.js"></script>
 <script type="text/javascript">
     $('.win-back').css("height", window.innerHeight);
     $.ajax({
