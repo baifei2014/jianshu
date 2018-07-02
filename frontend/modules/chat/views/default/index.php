@@ -1,5 +1,7 @@
 <?php 
 use yii\bootstrap\ActiveForm;
+
+$this->title = '聊天室';
 ?>
 <?php $form = ActiveForm::begin(); ?>
 <?php ActiveForm::end(); ?>
