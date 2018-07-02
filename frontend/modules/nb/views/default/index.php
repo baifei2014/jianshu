@@ -2,7 +2,7 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = '蒋龙豪 - 简书';
+$this->title = '日记本 - 简书';
 ?>
 <div class="user-index">
     <div class="row">
