@@ -24,7 +24,7 @@ use yii\helpers\Html;
                 </div>
             </div>
             <div class="contbccmiddle-right">
-                <img src="<?php echo $value['img']; ?>">
+                <img src="<?php echo '/'.$value['img']; ?>">
             </div>
         </div>
         <div class="contbccmiddle-bottom">

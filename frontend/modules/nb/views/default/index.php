@@ -81,9 +81,15 @@ $this->title = '蒋龙豪 - 简书';
     </div>
 </div>
 <script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/partical.js"></script>
+<script type="text/javascript" src="/js/focus.js"></script>
+<script type="text/javascript" src="/js/comment.js"></script>
+<script type="text/javascript" src="/js/pager.js"></script>
+<script type="text/javascript" src="/js/reply.js"></script>
+<script type="text/javascript" src="/js/tab.js"></script>
 <script type="text/javascript">
     $.ajax({
-        url: '<?php echo '/nb/default/added&id='.$articalset['id']; ?>',
+        url: '<?php echo '/nb/default/added?id='.$articalset['id']; ?>',
         type: 'get',
     }).always(function(result){
         $('.pager-content').html(result);
