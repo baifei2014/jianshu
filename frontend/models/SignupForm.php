@@ -62,7 +62,6 @@ class SignupForm extends Model
             $model = new Articalset;
             $model->uid = $this->id;
             $model->name = '日记本';
-            $model->created_at = time();
             if($model->save()){
                 $setinfor = new Setinfor;
                 $setinfor->sid = $this->id;
