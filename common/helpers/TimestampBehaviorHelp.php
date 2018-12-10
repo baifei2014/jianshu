@@ -1,5 +1,5 @@
 <?php
-namespace common\helpers\TimestampBehaviorHelp;
+namespace common\helpers;
 
 use yii\behaviors\TimestampBehavior;
 
