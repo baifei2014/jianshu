@@ -3,7 +3,7 @@ namespace common\models;
 
 use Yii;
 use yii\base\NotSupportedException;
-use yii\behaviors\TimestampBehavior;
+use common\helpers\TimestampBehaviorHelp;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use common\models\Userexinfor;
@@ -50,7 +50,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            TimestampBehaviorHelp::className(),
         ];
     }
 
