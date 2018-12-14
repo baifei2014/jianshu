@@ -22,7 +22,7 @@ class Userinfor extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'userinfor';
+        return 'user_infor';
     }
 
     public function getUser()

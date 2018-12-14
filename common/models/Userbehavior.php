@@ -25,7 +25,7 @@ class Userbehavior extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'userbehavior';
+        return 'user_behavior';
     }
 
     /**

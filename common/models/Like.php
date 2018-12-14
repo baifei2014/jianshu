@@ -47,7 +47,7 @@ class Like extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['u_id', 'a_id', 'wid', 'created_at'], 'integer'],
+            [['u_id', 'a_id', 'wid'], 'integer'],
         ];
     }
 

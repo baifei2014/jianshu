@@ -77,7 +77,7 @@ class Focus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['u_id', 'f_id', 'created_at'], 'integer'],
+            [['u_id', 'f_id'], 'integer'],
             [['type'], 'string', 'max' => 255],
         ];
     }

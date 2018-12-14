@@ -20,7 +20,7 @@ class Articalinfor extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'articalinfor';
+        return 'artical_infor';
     }
 
     public function getArtical()

@@ -17,7 +17,7 @@ class Articaltag extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'articaltag';
+        return 'artical_tag';
     }
 
     /**

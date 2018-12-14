@@ -19,7 +19,7 @@ class Articaltype extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'articaltype';
+        return 'artical_type';
     }
 
     /**

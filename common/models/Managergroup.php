@@ -19,7 +19,7 @@ class Managergroup extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'managergroup';
+        return 'manager_group';
     }
 
     /**
