@@ -3,7 +3,6 @@ namespace common\models;
 
 use Yii;
 use yii\base\NotSupportedException;
-use common\helpers\TimestampBehaviorHelp;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use common\models\Userexinfor;
@@ -43,15 +42,6 @@ class User extends ActiveRecord implements IdentityInterface
     public function getUserinfor()
     {
         return $this->hasOne(Userinfor::className(), ['uid' => 'id']);
-    }
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            TimestampBehaviorHelp::className(),
-        ];
     }
 
     /**

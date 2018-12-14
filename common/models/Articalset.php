@@ -21,7 +21,7 @@ class Articalset extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'articalset';
+        return 'artical_set';
     }
     public function getMaker()
     {
