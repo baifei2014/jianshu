@@ -1,6 +1,7 @@
 <?php
 namespace frontend\models;
 
+use Yii;
 use yii\base\Model;
 use common\models\User;
 use common\models\Userexinfor;
@@ -51,44 +52,53 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        $user = new User();
-        $user->nickname = $this->nickname;
-        $user->avatar = 'statics/images/avatar.png';
-        $user->email = $this->email;
-        $user->setPassword($this->password);
-        $user->generateAuthKey();
-        if($user->save()){
-            $this->id = $user->id;
-            $model = new Articalset;
-            $model->uid = $this->id;
-            $model->name = '日记本';
-            if($model->save()){
-                $setinfor = new Setinfor;
-                $setinfor->sid = $this->id;
-                $setinfor->save();
+        $db = Yii::$app->db;
+        $transaction = $db->beginTransaction();
+        try {
+            $user = new User();
+            $user->nickname = $this->nickname;
+            $user->avatar = 'statics/images/avatar.png';
+            $user->email = $this->email;
+            $user->setPassword($this->password);
+            $user->generateAuthKey();
+            if($user->save()){
+                $this->id = $user->id;
+                $model = new Articalset;
+                $model->uid = $this->id;
+                $model->name = '日记本';
+                if($model->save()){
+                    $setinfor = new Setinfor;
+                    $setinfor->sid = $this->id;
+                    $setinfor->save();
+                }
+                $userexinfor = new Userexinfor;
+                $userexinfor->user_id = $this->id;
+                $userexinfor->save();
+                $userinfor = new Userinfor;
+                $userinfor->uid = $this->id;
+                $userinfor->sex = '男';
+                $userinfor->save();
+                $infor = new Infor();
+                $infor->uid = $this->id;
+                $time = time();
+                $infor->commentstime = $time;
+                $infor->commentsuptime = $time;
+                $infor->likestime = $time;
+                $infor->likesuptime = $time;
+                $infor->followstime = $time;
+                $infor->followsuptime = $time;
+                $infor->otherstime = $time;
+                $infor->othersuptime = $time;
+                $infor->save();
+                $transaction->commit();
+                return $user;
+            }else{
+                return null;
             }
-            $userexinfor = new Userexinfor;
-            $userexinfor->user_id = $this->id;
-            $userexinfor->save();
-            $userinfor = new Userinfor;
-            $userinfor->uid = $this->id;
-            $userinfor->sex = '男';
-            $userinfor->save();
-            $infor = new Infor();
-            $infor->uid = $this->id;
-            $time = time();
-            $infor->commentstime = $time;
-            $infor->commentsuptime = $time;
-            $infor->likestime = $time;
-            $infor->likesuptime = $time;
-            $infor->followstime = $time;
-            $infor->followsuptime = $time;
-            $infor->otherstime = $time;
-            $infor->othersuptime = $time;
-            $infor->save();
-            return $user;
-        }else{
-            return null;
+        } catch(\Exception $e) {
+            $transaction->rollBack();
+        } catch(\Throwable $e) {
+            $transaction->rollBack();
         }
     }
     public function attributeLabels()

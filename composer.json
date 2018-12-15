@@ -12,17 +12,23 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packagist.likecho.com"
+        }
+    ],
     "require": {
         "php": ">=5.4.0",
+        "kartik-v/yii2-markdown": "dev-master",
+        "kucha/ueditor": "*",
+        "pjkui/kindeditor": "dev-master",
+        "yiidoc/yii2-redactor": "*",
         "yiisoft/yii2": "~2.0.6",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "yiidoc/yii2-redactor": "*",
-        "kucha/ueditor": "*",
         "yiisoft/yii2-imagine": "^2.1",
-        "kartik-v/yii2-markdown": "dev-master",
-        "yiisoft/yii2-redis": "~2.0.0"
+        "yiisoft/yii2-redis": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -32,9 +38,6 @@
         "codeception/base": "^2.2.3",
         "codeception/verify": "~0.3.1"
     },
-    "config": {
-        "process-timeout": 1800
-    },
     "extra": {
         "asset-installer-paths": {
             "npm-asset-library": "vendor/npm",
@@ -43,5 +46,14 @@
     },
     "scripts": {
         "post-install-cmd": "php init --env=Development --overwrite=n"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "secure-http": false,
+        "optimize-autoloader": true,
+        "process-timeout": 1800
     }
 }

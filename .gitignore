@@ -34,3 +34,4 @@ phpunit.phar
 # vagrant runtime
 /.vagrant
 /frontend/helpers/gateway
+frontend/web/statics/uploads

@@ -84,4 +84,9 @@ class DefaultController extends Controller
         $data = ArticalsetForm::savearticalset('python');
         echo empty($data);
     }
+
+    public function actionIndexTemp()
+    {
+        return $this->render('index-temp');
+    }
 }

@@ -112,7 +112,7 @@ $this->title = '聊天室';
      * start_gateway.php 中需要指定websocket协议，像这样
      * $gateway = new Gateway(websocket://0.0.0.0:7272);
     */
-    ws = new WebSocket("ws://182.254.153.39:1235");
+    ws = new WebSocket("ws://47.98.130.177:1235");
     // 服务端主动推送消息时会触发这里的onmessage
     
     ws.onmessage = function(e){

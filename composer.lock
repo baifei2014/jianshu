@@ -1,11 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "73ac1515f7be300ae35b1844987bbcc9",
-    "content-hash": "53802eec12ed373b2e8b3ca93238d85b",
+    "content-hash": "168e877c288e9fc9d74ea76039483a4d",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -166,7 +165,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2017-07-16 21:13:23"
+            "time": "2017-07-16T21:13:23+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -213,7 +212,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2018-02-23 01:58:20"
+            "time": "2018-02-23T01:58:20+00:00"
         },
         {
             "name": "imagine/imagine",
@@ -271,7 +270,7 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2017-05-16 10:31:22"
+            "time": "2017-05-16T10:31:22+00:00"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -322,7 +321,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-09-29 06:18:14"
+            "time": "2017-09-29T06:18:14+00:00"
         },
         {
             "name": "kartik-v/yii2-markdown",
@@ -379,7 +378,7 @@
                 "yii",
                 "yii2"
             ],
-            "time": "2018-06-08 19:20:28"
+            "time": "2018-06-08T19:20:28+00:00"
         },
         {
             "name": "kucha/ueditor",
@@ -412,7 +411,7 @@
                 }
             ],
             "description": "desc",
-            "time": "2017-01-15 06:29:37"
+            "time": "2017-01-15T06:29:37+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -458,7 +457,7 @@
             "keywords": [
                 "markdown"
             ],
-            "time": "2018-01-15 00:49:33"
+            "time": "2018-01-15T00:49:33+00:00"
         },
         {
             "name": "michelf/php-smartypants",
@@ -508,7 +507,42 @@
                 "typographer",
                 "typography"
             ],
-            "time": "2016-12-13 01:01:17"
+            "time": "2016-12-13T01:01:17+00:00"
+        },
+        {
+            "name": "pjkui/kindeditor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/baifei2014/kindeditor.git",
+                "reference": "84b3b10570a923c868c24615cdbfea60a04b8d08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/baifei2014/kindeditor/zipball/84b3b10570a923c868c24615cdbfea60a04b8d08",
+                "reference": "84b3b10570a923c868c24615cdbfea60a04b8d08",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "pjkui\\kindeditor\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Quinn Pan",
+                    "email": "pjkui@qq.com"
+                }
+            ],
+            "description": "desc",
+            "support": {
+                "source": "https://github.com/baifei2014/kindeditor/tree/master"
+            },
+            "time": "2017-04-14T10:04:17+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -562,7 +596,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2018-01-23 07:37:21"
+            "time": "2018-01-23T07:37:21+00:00"
         },
         {
             "name": "yiidoc/yii2-redactor",
@@ -606,7 +640,7 @@
                 "wysiwyg",
                 "yii2"
             ],
-            "time": "2015-06-02 21:47:24"
+            "time": "2015-06-02T21:47:24+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -706,7 +740,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2018-03-21 18:36:53"
+            "time": "2018-03-21T18:36:53+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -766,7 +800,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2018-02-16 10:41:52"
+            "time": "2018-02-16T10:41:52+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -820,7 +854,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2018-03-21 16:15:55"
+            "time": "2018-03-21T16:15:55+00:00"
         },
         {
             "name": "yiisoft/yii2-imagine",
@@ -868,7 +902,7 @@
                 "imagine",
                 "yii2"
             ],
-            "time": "2018-02-22 11:57:06"
+            "time": "2018-02-22T11:57:06+00:00"
         },
         {
             "name": "yiisoft/yii2-redis",
@@ -919,7 +953,7 @@
                 "session",
                 "yii2"
             ],
-            "time": "2018-03-20 11:01:04"
+            "time": "2018-03-20T11:01:04+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -969,7 +1003,7 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2017-05-01 08:29:00"
+            "time": "2017-05-01T08:29:00+00:00"
         }
     ],
     "packages-dev": [
@@ -1030,7 +1064,7 @@
                 "gherkin",
                 "parser"
             ],
-            "time": "2017-08-30 11:04:43"
+            "time": "2017-08-30T11:04:43+00:00"
         },
         {
             "name": "bower-asset/typeahead.js",
@@ -1138,7 +1172,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2018-05-26 22:24:57"
+            "time": "2018-05-26T22:24:57+00:00"
         },
         {
             "name": "codeception/phpunit-wrapper",
@@ -1181,7 +1215,7 @@
                 }
             ],
             "description": "PHPUnit classes used by Codeception",
-            "time": "2018-06-20 20:07:21"
+            "time": "2018-06-20T20:07:21+00:00"
         },
         {
             "name": "codeception/stub",
@@ -1214,7 +1248,7 @@
                 "MIT"
             ],
             "description": "Flexible Stub wrapper for PHPUnit's Mock Builder",
-            "time": "2018-05-18 14:33:08"
+            "time": "2018-05-18T14:33:08+00:00"
         },
         {
             "name": "codeception/verify",
@@ -1250,7 +1284,7 @@
                 }
             ],
             "description": "BDD assertion library for PHPUnit",
-            "time": "2017-01-09 10:58:51"
+            "time": "2017-01-09T10:58:51+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -1304,7 +1338,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2017-07-22 11:58:36"
+            "time": "2017-07-22T11:58:36+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -1354,7 +1388,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-08-15 16:48:10"
+            "time": "2017-08-15T16:48:10+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1419,7 +1453,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20 17:10:46"
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1467,7 +1501,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2018-06-11 23:09:50"
+            "time": "2018-06-11T23:09:50+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -1522,7 +1556,7 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2017-03-05 18:14:27"
+            "time": "2017-03-05T18:14:27+00:00"
         },
         {
             "name": "phar-io/version",
@@ -1569,7 +1603,7 @@
                 }
             ],
             "description": "Library for handling version information and constraints",
-            "time": "2017-03-05 17:38:23"
+            "time": "2017-03-05T17:38:23+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -1623,7 +1657,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-09-11 18:02:19"
+            "time": "2017-09-11T18:02:19+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1674,7 +1708,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-30 07:14:17"
+            "time": "2017-11-30T07:14:17+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -1721,7 +1755,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-07-14 14:27:02"
+            "time": "2017-07-14T14:27:02+00:00"
         },
         {
             "name": "phpspec/php-diff",
@@ -1759,7 +1793,7 @@
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
-            "time": "2016-04-07 12:29:16"
+            "time": "2016-04-07T12:29:16+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -1822,7 +1856,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-04-18 13:57:24"
+            "time": "2018-04-18T13:57:24+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1885,7 +1919,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-05-28 11:49:20"
+            "time": "2018-05-28T11:49:20+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1932,7 +1966,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2017-11-27 13:52:08"
+            "time": "2017-11-27T13:52:08+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -1973,7 +2007,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21 13:50:34"
+            "time": "2015-06-21T13:50:34+00:00"
         },
         {
             "name": "phpunit/php-timer",
@@ -2022,7 +2056,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2018-02-01 13:07:23"
+            "time": "2018-02-01T13:07:23+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -2071,7 +2105,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2018-02-01 13:16:43"
+            "time": "2018-02-01T13:16:43+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -2151,7 +2185,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-04-29 15:09:19"
+            "time": "2018-04-29T15:09:19+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2207,7 +2241,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2018-05-29 13:54:20"
+            "time": "2018-05-29T13:54:20+00:00"
         },
         {
             "name": "psr/http-message",
@@ -2257,7 +2291,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06 14:39:51"
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -2302,7 +2336,7 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2017-03-04 06:30:41"
+            "time": "2017-03-04T06:30:41+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -2366,7 +2400,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-06-14 15:05:28"
+            "time": "2018-06-14T15:05:28+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -2422,7 +2456,7 @@
                 "unidiff",
                 "unified diff"
             ],
-            "time": "2018-06-10 07:54:39"
+            "time": "2018-06-10T07:54:39+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -2472,7 +2506,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-07-01 08:51:00"
+            "time": "2017-07-01T08:51:00+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -2539,7 +2573,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2017-04-03 13:19:02"
+            "time": "2017-04-03T13:19:02+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -2590,7 +2624,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2017-04-27 15:39:26"
+            "time": "2017-04-27T15:39:26+00:00"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -2637,7 +2671,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2017-08-03 12:35:26"
+            "time": "2017-08-03T12:35:26+00:00"
         },
         {
             "name": "sebastian/object-reflector",
@@ -2682,7 +2716,7 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
-            "time": "2017-03-29 09:07:27"
+            "time": "2017-03-29T09:07:27+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -2735,7 +2769,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2017-03-03 06:23:57"
+            "time": "2017-03-03T06:23:57+00:00"
         },
         {
             "name": "sebastian/resource-operations",
@@ -2777,7 +2811,7 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2015-07-28 20:34:47"
+            "time": "2015-07-28T20:34:47+00:00"
         },
         {
             "name": "sebastian/version",
@@ -2820,7 +2854,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2016-10-03 07:35:21"
+            "time": "2016-10-03T07:35:21+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -2877,7 +2911,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-06 10:52:03"
+            "time": "2018-04-06T10:52:03+00:00"
         },
         {
             "name": "symfony/console",
@@ -2945,7 +2979,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-30 07:26:09"
+            "time": "2018-05-30T07:26:09+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -2998,7 +3032,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-30 07:26:09"
+            "time": "2018-05-30T07:26:09+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -3055,7 +3089,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-01 23:02:13"
+            "time": "2018-05-01T23:02:13+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -3118,7 +3152,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-06 07:35:57"
+            "time": "2018-04-06T07:35:57+00:00"
         },
         {
             "name": "symfony/finder",
@@ -3167,7 +3201,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-16 14:33:22"
+            "time": "2018-05-16T14:33:22+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -3222,7 +3256,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-04-30 19:57:29"
+            "time": "2018-04-30T19:57:29+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3281,7 +3315,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-04-26 10:06:28"
+            "time": "2018-04-26T10:06:28+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -3340,7 +3374,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-30 07:26:09"
+            "time": "2018-05-30T07:26:09+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -3380,7 +3414,7 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "time": "2017-04-07 12:08:54"
+            "time": "2017-04-07T12:08:54+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -3430,7 +3464,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-01-29 19:49:41"
+            "time": "2018-01-29T19:49:41+00:00"
         },
         {
             "name": "yiisoft/yii2-debug",
@@ -3477,7 +3511,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2017-12-05 07:36:23"
+            "time": "2017-12-05T07:36:23+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -3524,7 +3558,7 @@
                 "faker",
                 "yii2"
             ],
-            "time": "2018-02-19 20:27:10"
+            "time": "2018-02-19T20:27:10+00:00"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -3577,15 +3611,16 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2018-05-02 22:05:25"
+            "time": "2018-05-02T22:05:25+00:00"
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "kartik-v/yii2-markdown": 20
+        "kartik-v/yii2-markdown": 20,
+        "pjkui/kindeditor": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.4.0"

@@ -336,7 +336,6 @@ class SiteController extends BaseController
                 }
             }
         }
-
         return $this->renderPartial('signup', [
             'model' => $model,
         ]);
