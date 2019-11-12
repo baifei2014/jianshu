@@ -37,6 +37,16 @@ $this->title = '聊天室';
                         <div class="load-more">
                             <span class="load-more-btn" v-on:click="getMessage()">点击加载更多</span>
                         </div>
+                        <ul>
+                            <li v-for="message in messageList">
+                                <div class="message-list" :class="{message['current_user'] == message['uid'] ? 'right-message' : 'left-message'}">
+                                    <span>
+                                        <img :src="/message['avatar']" class="chat-avatar-small">
+                                    </span>
+                                    <p>{{ message['message'] }}<i></i></p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="form-bottom">
@@ -49,7 +59,7 @@ $this->title = '聊天室';
                 <div class="main-types">
                     <ul class="chatroom-block">
                         <li v-for="chatroom in chatrooms">
-                            <div :class="{active: activeRoomId == chatroom.id}" class="chatroom-item" v-on:click="selectCurrentChatRoom(chatroom.id)">
+                            <div :class="{active: activeRoomId == chatroom.id}" class="chatroom-item" v-on:click="switchCurrentChatRoom(chatroom.id)">
                                 <div>
                                     <img class="chatroom-img" :src="chatroom.avatar">
                                 </div>
@@ -82,6 +92,7 @@ $this->title = '聊天室';
         bindUrl: '/chat/default/bind',
         sendMessageUrl: '/chat/default/sentmessage',
         clientId: null
+        messageList: []
       },
       created: function() {
         var _this = this
@@ -93,7 +104,9 @@ $this->title = '聊天室';
         _this.ws.onmessage = function(e){
             var data = eval("("+e.data+")");
             var type = data.type || '';
-            _this.clientId = data.client_id;
+            if (data.client_id) {
+                _this.clientId = data.client_id;
+            }
             switch(type){
                 case 'init':
                     ajaxRequest(
@@ -113,8 +126,9 @@ $this->title = '聊天室';
         };
       },
       methods: {
-        selectCurrentChatRoom: function(roomId) {
+        switchCurrentChatRoom: function(roomId) {
             this.activeRoomId = roomId;
+
             ajaxRequest(
                 this.bindUrl,
                 roomId,
@@ -148,6 +162,7 @@ $this->title = '聊天室';
             formData.append('id', id);
             formData.append('room_id', this.activeRoomId);
 
+            var _this = this;
             $.ajax({
                 url: '/chat/default/get-message',
                 type: 'post',
@@ -164,20 +179,21 @@ $this->title = '聊天室';
                 if(page == 0) {
                     $('.chat-content').prepend('<div class="load-info"><span>以上是历史消息</span></div>')
                 }
-                var infos = result['infos']
+                _this.messageList = result['infos']
                 for (var i = 0; i < infos.length; i++) {
-                    if(i != 0) {
-                        if((infos[i-1]['created_at'] - infos[i]['created_at']) > 1500) {
-                            var creaetd_at = formatDate(infos[i-1]['created_at'])
-                            $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
-                        }
-                    }
-                    if(infos[i]['uid'] == id){
-                        var mess_position = 'right-message';
-                    }else{
-                        var mess_position = 'left-message';
-                    }
-                    $('.chat-content').prepend('<div class="message-list '+mess_position+'"><span><img src="'+'/' + infos[i]['avatar'] + '" class="chat-avatar-small"></span><p>'+infos[i]['message']+'<i></i></p></div>');
+                    _this.messageList[i]['current_user'] = id;
+                    // if(i != 0) {
+                    //     if((infos[i-1]['created_at'] - infos[i]['created_at']) > 1500) {
+                    //         var creaetd_at = formatDate(infos[i-1]['created_at'])
+                    //         $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
+                    //     }
+                    // }
+                    // if(infos[i]['uid'] == id){
+                    //     var mess_position = 'right-message';
+                    // }else{
+                    //     var mess_position = 'left-message';
+                    // }
+                    // $('.chat-content').prepend('<div class="message-list '+mess_position+'"><span><img src="'+'/' + infos[i]['avatar'] + '" class="chat-avatar-small"></span><p>'+infos[i]['message']+'<i></i></p></div>');
                 }
 
                 var creaetd_at = formatDate(infos[infos.length - 1]['created_at'])
