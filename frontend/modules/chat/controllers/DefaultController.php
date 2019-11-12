@@ -5,6 +5,7 @@ namespace frontend\modules\chat\controllers;
 use yii;
 use yii\web\Controller;
 use common\models\User;
+use common\models\Chatroom;
 use frontend\helpers\Robot;
 use frontend\helpers\SentMessage;
 use frontend\helpers\gateway\gatewayclient\vendor\workerman\gatewayclient\Gateway;
@@ -23,6 +24,22 @@ class DefaultController extends Controller
     {
         return $this->render('list');
     }
+
+    public function actionChatRooms()
+    {
+        $chatrooms = Chatroom::find()->where(['is_delete' => 0])->all();
+        $result = [];
+        foreach ($chatrooms as $chatroom) {
+            $result[] = [
+                'id' => $chatroom['id'],
+                'room_name' => $chatroom['room_name'],
+                'avatar' => $chatroom['avatar'],
+            ];
+        }
+        return json_encode($result);
+    }
+
+
     public function actionIndex()
     {
         $user = User::find()->where(['id' => Yii::$app->user->identity->id])->one();
@@ -32,11 +49,11 @@ class DefaultController extends Controller
     {
         $data = Yii::$app->request->post();
         // 设置GatewayWorker服务的Register服务ip和端口，请根据实际情况改成实际值
-        Gateway::$registerAddress = '127.0.0.1:1238';
+        Gateway::$registerAddress = '47.98.130.177:1238';
 
         // 假设用户已经登录，用户uid和群组id在session中
         // $uid      = Yii::$app->user->identity->id;
-        $group_id = 123456;
+        $group_id = $data['room_id'];
         $client_id = $data['id'];
         // $group_id = $_SESSION['group'];
         // client_id与uid绑定
@@ -79,7 +96,6 @@ class DefaultController extends Controller
     public function actionRobot()
     {
         $message = Robot::getMessage('你好', 5);
-        print_r($message);die();
         return $this->render('robot');
     }
     public function actionTest()

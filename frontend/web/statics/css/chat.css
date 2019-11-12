@@ -1,25 +1,32 @@
 .chat-index{
-    width: 88%;
+    width: 98%;
     margin: 0 auto;
     margin-top: 40px;
     height: 500px;
     position: relative;
 }
 .col-cm-2{
-    width: 21%;
+    width: 24%;
     position: relative;
     float: left;
     height: 100%;
     padding: 5px;
 }
 .col-cm-8{
-    width: 56%;
+    width: 48%;
     position: relative;
     float: left;
     height: 100%;
     padding: 5px 0;
     margin-left: 10px;
     margin-right: 10px;
+}
+.col-cm-4 {
+    width: 26%;
+    position: relative;
+    float: left;
+    height: 100%;
+    padding: 5px;
 }
 .chatp-infor{
     width: 100%;
@@ -84,43 +91,45 @@
 .chat-types{
     width: 100%;
     height: 100%;
-    padding: 5px;
     box-shadow: 0 0 2px #666;
+    overflow-y: scroll;
 }
-.main-types{
-    padding: 40px 15px;
+.main-types > ul {
+    margin: 0;
+    padding: 0;
 }
-.list-type{
+.main-types > ul > li {
+    border-bottom: 1px solid #E0E0E0;
+}
+.main-types > ul > li:last-child {
+    border-bottom:none;
+}
+ul.chatroom-block > li > div.active {
+    background-color: #F0F0F0;
+}
+.chatroom-lastmessage > span {
+    color: #BEBEBE;
+    font-size: 12px;
+}
+.chatroom-item {
+    display: flex;
+    padding: 15px 9px;
+    cursor: pointer;
+}
+img.chatroom-img {
     width: 40px;
     height: 40px;
-    border-radius: 40px;
-    text-align: center;
-    color: #fff;
-    margin-right: 15px;
-    margin-bottom: 20px;
-    display: inline-block;
-    line-height: 40px;
+    border-radius: 4px;
 }
-.list-type:nth-child(3n+0){
-    margin-right: 0;
+.chatroom-info {
+    margin-left: 6px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
-.chat-type1{
-    background-color: #1d953f;
-}
-.chat-type2{
-    background-color: #ff6600;
-}
-.chat-type3{
-    background-color: #4499ee;
-}
-.chat-type4{
-    background-color: #ef4136;
-}
-.chat-type5{
-    background-color: #f3715c;
-}
-.chat-type6{
-    background-color: #00a6ac;
+.chat-time > span {
+    color: #BEBEBE;
+    font-size: 13px;
 }
 .form-bottom{
     position: absolute;
@@ -151,6 +160,13 @@
     color: #fff;
     font-size: 15px;
     cursor: pointer;
+}
+.chatroom-area {
+    height: 100%;
+    overflow-y: hidden;
+}
+#chatroom-block {
+    overflow-y: scroll;
 }
 .main-body{
     height:80%;

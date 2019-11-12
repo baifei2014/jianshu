@@ -13,7 +13,7 @@ use frontend\helpers\gateway\gatewayclient\vendor\workerman\gatewayclient\Gatewa
 // Gateway::sendToGroup($group_id, json_encode(['uid' => $uid, 'message' => $message, 'avatar' => $avatar, 'nickname' => $nickname]));
 class SentMessage
 {
-    const IPPORT = '127.0.0.1:1238';        // 设置GatewayWorker服务的Register服务ip和端口
+    const IPPORT = '47.98.130.177:1238';        // 设置GatewayWorker服务的Register服务ip和端口
     /**
      * @param int $group_id [群组的id]
      * @param array $infor [发送消息的内容]

@@ -5,7 +5,7 @@ $this->title = '聊天室';
 ?>
 <?php $form = ActiveForm::begin(); ?>
 <?php ActiveForm::end(); ?>
-<div class="chat-index">
+<div class="chat-index" id="chat">
         <div class="col-cm-2">
             <div class="chatp-infor">
                 <div class="chatp-top">
@@ -44,28 +44,75 @@ $this->title = '聊天室';
                 </div>
             </div>
         </div>
-        <div class="col-cm-2">
+        <div class="col-cm-4">
             <div class="chat-types">
                 <div class="main-types">
-                    <span class="chat-type1 list-type">聊天</span>
-                    <span class="chat-type6 list-type">笑话</span>
-                    <span class="chat-type5 list-type">问答</span>
-                    <span class="chat-type3 list-type">图片</span>
-                    <span class="chat-type4 list-type">天气</span>
-                    <span class="chat-type6 list-type">百科</span>
-                    <span class="chat-type2 list-type">故事</span>
-                    <span class="chat-type6 list-type">新闻</span>
-                    <span class="chat-type4 list-type">菜谱</span>
-                    <span class="chat-type1 list-type">星座</span>
-                    <span class="chat-type3 list-type">凶吉</span>
-                    <span class="chat-type6 list-type">计算</span>
-                    <span class="chat-type5 list-type">快递</span>
-                    <span class="chat-type2 list-type">飞机</span>
+                    <ul class="chatroom-block">
+                        <li v-for="chatroom in chatrooms">
+                            <div :class="{active: activeRoomId == chatroom.id}" class="chatroom-item" v-on:click="selectCurrentChatRoom(chatroom.id)">
+                                <div>
+                                    <img class="chatroom-img" :src="chatroom.avatar">
+                                </div>
+                                <div class="chatroom-info">
+                                    <div>
+                                        <div>{{ chatroom.room_name }}</div>
+                                        <div class="chatroom-lastmessage"><span>今天是小明刚来学校</span></div>
+                                    </div>
+                                    <div class="chat-time">
+                                        <span>2018-09-01</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
 </div>
 <script src="/js/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+      el: '#chat',
+      data: {
+        chatrooms: null,
+        activeRoomId: 1,
+        ws: null
+      },
+      created: function() {
+        var _this = this
+        axios.get('/chat/default/chat-rooms')
+          .then(function (response) {
+            _this.chatrooms = response.data;
+          })
+        _this.ws = new WebSocket("ws://47.98.130.177:1235");
+        _this.ws.onmessage = function(e){
+            var data = eval("("+e.data+")");
+            var type = data.type || '';
+            switch(type){
+                case 'init':
+                    var url = '<?php echo '/chat/default/bind' ?>';
+                    var roomId = _this.activeRoomId;
+                    ajaxRequest(url, roomId, data.client_id, '');
+                    break;
+                default :
+                    if(data.uid == id){
+                        var mess_position = 'right-message';
+                    }else{
+                        var mess_position = 'left-message';
+                    }
+                    showMessage(mess_position, data.avatar, data.message);
+            }
+        };
+      },
+      methods: {
+        selectCurrentChatRoom: function(roomId) {
+            this.activeRoomId = roomId;
+        }
+      }
+    })
+</script>
 <script type="text/javascript">
     setCookie('info_page', "", -1); 
     $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
@@ -112,34 +159,35 @@ $this->title = '聊天室';
      * start_gateway.php 中需要指定websocket协议，像这样
      * $gateway = new Gateway(websocket://0.0.0.0:7272);
     */
-    ws = new WebSocket("ws://182.254.153.39:1235");
+    // ws = new WebSocket("ws://182.254.153.39:1235");
+    // ws = new WebSocket("ws://47.98.130.177:1235");
     // 服务端主动推送消息时会触发这里的onmessage
     
-    ws.onmessage = function(e){
-        // json数据转换成js对象
-        // console.log(e);
-        var data = eval("("+e.data+")");
+    // ws.onmessage = function(e){
+    //     // json数据转换成js对象
+    //     // console.log(e);
+    //     var data = eval("("+e.data+")");
      
-        var type = data.type || '';
-        switch(type){
-            // Events.php中返回的init类型的消息，将client_id发给后台进行uid绑定
-            case 'init':
-                // 利用jquery发起ajax请求，将client_id发给后端进行uid绑定
-                // $.post('./bind.php', {client_id: data.client_id}, function(data){}, 'json');
-                var url = '<?php echo '/chat/default/bind' ?>';
-                ajaxRequest(url, data.client_id);
-                break;
-            // 当mvc框架调用GatewayClient发消息时直接alert出来
-            default :
-                if(data.uid == id){
-                    var mess_position = 'right-message';
-                }else{
-                    var mess_position = 'left-message';
-                }
-                showMessage(mess_position, data.avatar, data.message);
-        }
-    };
-    function ajaxRequest(url, id, message = ''){
+    //     var type = data.type || '';
+    //     switch(type){
+    //         // Events.php中返回的init类型的消息，将client_id发给后台进行uid绑定
+    //         case 'init':
+    //             // 利用jquery发起ajax请求，将client_id发给后端进行uid绑定
+    //             // $.post('./bind.php', {client_id: data.client_id}, function(data){}, 'json');
+                // var url = '<?php //echo '/chat/default/bind' ?>';
+    //             ajaxRequest(url, data.client_id, '', roomId);
+    //             break;
+    //         // 当mvc框架调用GatewayClient发消息时直接alert出来
+    //         default :
+    //             if(data.uid == id){
+    //                 var mess_position = 'right-message';
+    //             }else{
+    //                 var mess_position = 'left-message';
+    //             }
+    //             showMessage(mess_position, data.avatar, data.message);
+    //     }
+    // };
+    function ajaxRequest(url, roomId, id, message = ''){
         
         var formData = new FormData();
         var csrfToken = $('input[name="_csrf-frontend"]').val();
@@ -148,6 +196,7 @@ $this->title = '聊天室';
             formData.append('message', message);
         }
         formData.append('id', id);
+        formData.append('room_id', roomId);
         $.ajax({
             url: url,
             type: 'post',
