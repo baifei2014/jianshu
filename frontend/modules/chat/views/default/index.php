@@ -34,7 +34,7 @@ $this->title = '聊天室';
             <div class="chat-body">
                 <div class="main-body">
                     <div class="chat-content" id="chat-main">
-                        <div class="load-more" :class="{load-more-hidden: isHidden}">
+                        <div class="load-more">
                             <span class="load-more-btn" v-on:click="getMessage()">点击加载更多</span>
                         </div>
                     </div>
@@ -81,8 +81,7 @@ $this->title = '聊天室';
         ws: null,
         bindUrl: '/chat/default/bind',
         sendMessageUrl: '/chat/default/sentmessage',
-        clientId: null,
-        isHidden: false
+        clientId: null
       },
       created: function() {
         var _this = this
@@ -194,7 +193,7 @@ $this->title = '聊天室';
 </script>
 <script type="text/javascript">
     setCookie('info_page', "", -1); 
-    // $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
+    $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
     var id = '<?php echo Yii::$app->user->identity->id ?>';
     function getValue()
     {
