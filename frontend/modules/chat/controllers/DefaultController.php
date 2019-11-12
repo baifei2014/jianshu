@@ -82,18 +82,20 @@ class DefaultController extends Controller
 
         $redisMessageKey = $this->getMessageCacheKey($roomId);
         $len = Yii::$app->redis->lpush($redisMessageKey, json_encode($info));
-        if(Yii::$app->redis->llen($redisMessageKey) > 50) {
-            Yii::$app->redis->ltrim($redisMessageKey, 0, 49);
+        // if(Yii::$app->redis->llen($redisMessageKey) > 50) {
+        //     Yii::$app->redis->ltrim($redisMessageKey, 0, 49);
+        // }
+
+        if(self::ROBOT){
+            $infor = $message = Robot::robotReply($data['message'], $user['id']);
+            Yii::$app->redis->lpush($redisMessageKey, json_encode($infor));
+            SentMessage::sendToGroup($roomId, $infor);
         }
 
         return json_encode([
             'code' => 1,
             'msg' => $len
         ]);
-        if(self::ROBOT){
-            $infor = $message = Robot::robotReply($data['message'], $user['id']);
-            SentMessage::sendToGroup(123456, $infor);
-        }
     }
 
     private function getMessageCacheKey($value)

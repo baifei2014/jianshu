@@ -11,7 +11,7 @@ class Robot
     const APPKEY = '4d181280d739ecd2cbe4b8722d901d9c';
     const URL = 'http://op.juhe.cn/robot/index';
     const ID = 0;
-    const AVATAR = 'statics/images/avatar/timg.jpg';
+    const AVATAR = 'statics/images/avatar/robot.jpeg';
     const NICKNAME = '小艾';
 
 
