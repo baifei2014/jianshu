@@ -131,6 +131,9 @@ img.chatroom-img {
     color: #BEBEBE;
     font-size: 13px;
 }
+.load-more-hidden {
+    display: hidden;
+}
 .form-bottom{
     position: absolute;
     bottom: 0;

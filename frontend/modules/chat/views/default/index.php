@@ -34,13 +34,13 @@ $this->title = '聊天室';
             <div class="chat-body">
                 <div class="main-body">
                     <div class="chat-content" id="chat-main">
-                        <div class="load-more">
-                            <span class="load-more-btn">点击加载更多</span>
+                        <div class="load-more" :class="{load-more-hidden: isHidden}">
+                            <span class="load-more-btn" v-on:click="getMessage()">点击加载更多</span>
                         </div>
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <input type="text" name="message-form" class="message-input"><span class="submit-button">发送</span>
+                    <input type="text" name="message-form" class="message-input" @keyup.enter="sendMessage()"><span class="submit-button" v-on:click="sendMessage()">发送</span>
                 </div>
             </div>
         </div>
@@ -78,7 +78,11 @@ $this->title = '聊天室';
       data: {
         chatrooms: null,
         activeRoomId: 1,
-        ws: null
+        ws: null,
+        bindUrl: '/chat/default/bind',
+        sendMessageUrl: '/chat/default/sentmessage',
+        clientId: null,
+        isHidden: false
       },
       created: function() {
         var _this = this
@@ -90,11 +94,14 @@ $this->title = '聊天室';
         _this.ws.onmessage = function(e){
             var data = eval("("+e.data+")");
             var type = data.type || '';
+            _this.clientId = data.client_id;
             switch(type){
                 case 'init':
-                    var url = '<?php echo '/chat/default/bind' ?>';
-                    var roomId = _this.activeRoomId;
-                    ajaxRequest(url, roomId, data.client_id, '');
+                    ajaxRequest(
+                        _this.bindUrl,
+                        _this.activeRoomId,
+                        _this.clientId
+                    );
                     break;
                 default :
                     if(data.uid == id){
@@ -109,39 +116,86 @@ $this->title = '聊天室';
       methods: {
         selectCurrentChatRoom: function(roomId) {
             this.activeRoomId = roomId;
+            ajaxRequest(
+                this.bindUrl,
+                roomId,
+                this.clientId
+            );
+        },
+        sendMessage: function() {
+            var message = getValue();
+
+            var uid = '<?php echo Yii::$app->user->identity->id ?>';
+            if(message != ''){
+                ajaxRequest(this.sendMessageUrl, this.activeRoomId, uid, message)
+            }
+        },
+        getMessage: function(){
+            $('.chat-content').children('.load-more').remove()
+            var formData = new FormData();
+            var csrfToken = $('input[name="_csrf-frontend"]').val();
+            formData.append('_csrf-frontend', csrfToken);
+
+            if(getCookie('info_page')){
+                var page =  getCookie('info_page');
+                setCookie('info_page', parseInt(page) + parseInt(10))
+            }else{
+                var page = 0;
+                setCookie('info_page', 10)
+            }
+
+            formData.append('info_page', page);
+            var id = '<?php echo Yii::$app->user->identity->id ?>';
+            formData.append('id', id);
+            formData.append('room_id', this.activeRoomId);
+
+            $.ajax({
+                url: '/chat/default/get-message',
+                type: 'post',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+            }).always(function(response){
+                var result = JSON.parse(response)
+
+                if(!result['code']) {
+                    return;
+                }
+                if(page == 0) {
+                    $('.chat-content').prepend('<div class="load-info"><span>以上是历史消息</span></div>')
+                }
+                var infos = result['infos']
+                for (var i = 0; i < infos.length; i++) {
+                    if(i != 0) {
+                        if((infos[i-1]['created_at'] - infos[i]['created_at']) > 1500) {
+                            var creaetd_at = formatDate(infos[i-1]['created_at'])
+                            $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
+                        }
+                    }
+                    if(infos[i]['uid'] == id){
+                        var mess_position = 'right-message';
+                    }else{
+                        var mess_position = 'left-message';
+                    }
+                    $('.chat-content').prepend('<div class="message-list '+mess_position+'"><span><img src="'+'/' + infos[i]['avatar'] + '" class="chat-avatar-small"></span><p>'+infos[i]['message']+'<i></i></p></div>');
+                }
+
+                var creaetd_at = formatDate(infos[infos.length - 1]['created_at'])
+                $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
+
+                if(result['code'] == 1) {
+                    $('.chat-content').prepend('<div class="load-more"><span class="load-more-btn">点击加载更多</span></div>')
+                }
+            });
         }
       }
     })
 </script>
 <script type="text/javascript">
     setCookie('info_page', "", -1); 
-    $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
+    // $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
     var id = '<?php echo Yii::$app->user->identity->id ?>';
-    $('input[name="message-form"]')
-    .focus(function(){
-        document.onkeydown = function (e) {
-            if (!e) e = window.event;
-            if ((e.keyCode || e.which) == 13) {
-                var message = getValue();
-                $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
-                var url = '<?php echo '/chat/default/sentmessage' ?>';
-                var uid = '<?php echo Yii::$app->user->identity->id ?>';
-                if(message != ''){
-                    ajaxRequest(url, uid, message)
-                }
-            }
-        }
-    })
-    $('.submit-button')
-    .click(function(){
-        var message = getValue();
-        var url = '<?php echo '/chat/default/sentmessage' ?>';
-
-        var uid = '<?php echo Yii::$app->user->identity->id ?>';
-        if(message != ''){
-            ajaxRequest(url, uid, message)
-        }
-    })
     function getValue()
     {
         var message = $('input[name="message-form"]').val();
@@ -153,40 +207,6 @@ $this->title = '聊天室';
         $('.chat-content').append('<div class="message-list '+mess_position+'"><span><img src="'+'/'+avatar+'" class="chat-avatar-small"></span><p>'+message+'<i></i></p></div>');
         $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
     }
-    /**
-     * 与GatewayWorker建立websocket连接，域名和端口改为你实际的域名端口，
-     * 其中端口为Gateway端口，即start_gateway.php指定的端口。
-     * start_gateway.php 中需要指定websocket协议，像这样
-     * $gateway = new Gateway(websocket://0.0.0.0:7272);
-    */
-    // ws = new WebSocket("ws://182.254.153.39:1235");
-    // ws = new WebSocket("ws://47.98.130.177:1235");
-    // 服务端主动推送消息时会触发这里的onmessage
-    
-    // ws.onmessage = function(e){
-    //     // json数据转换成js对象
-    //     // console.log(e);
-    //     var data = eval("("+e.data+")");
-     
-    //     var type = data.type || '';
-    //     switch(type){
-    //         // Events.php中返回的init类型的消息，将client_id发给后台进行uid绑定
-    //         case 'init':
-    //             // 利用jquery发起ajax请求，将client_id发给后端进行uid绑定
-    //             // $.post('./bind.php', {client_id: data.client_id}, function(data){}, 'json');
-                // var url = '<?php //echo '/chat/default/bind' ?>';
-    //             ajaxRequest(url, data.client_id, '', roomId);
-    //             break;
-    //         // 当mvc框架调用GatewayClient发消息时直接alert出来
-    //         default :
-    //             if(data.uid == id){
-    //                 var mess_position = 'right-message';
-    //             }else{
-    //                 var mess_position = 'left-message';
-    //             }
-    //             showMessage(mess_position, data.avatar, data.message);
-    //     }
-    // };
     function ajaxRequest(url, roomId, id, message = ''){
         
         var formData = new FormData();
@@ -205,65 +225,6 @@ $this->title = '聊天室';
             contentType: false,
             processData: false,
         }).always(function(result){
-        });
-    }
-    $(document).on('click', '.load-more-btn', getMessage)
-    function getMessage(){
-        $('.chat-content').children('.load-more').remove()
-        var formData = new FormData();
-        var csrfToken = $('input[name="_csrf-frontend"]').val();
-        formData.append('_csrf-frontend', csrfToken);
-
-        if(getCookie('info_page')){
-            var page =  getCookie('info_page');
-            setCookie('info_page', parseInt(page) + parseInt(10))
-        }else{
-            var page = 0;
-            setCookie('info_page', 10)
-        }
-
-        formData.append('info_page', page);
-        var id = '<?php echo Yii::$app->user->identity->id ?>';
-        formData.append('id', id);
-
-        $.ajax({
-            url: '/chat/default/get-message',
-            type: 'post',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-        }).always(function(response){
-            var result = JSON.parse(response)
-
-            if(!result['code']) {
-                return;
-            }
-            if(page == 0) {
-                $('.chat-content').prepend('<div class="load-info"><span>以上是历史消息</span></div>')
-            }
-            var infos = result['infos']
-            for (var i = 0; i < infos.length; i++) {
-                if(i != 0) {
-                    if((infos[i-1]['created_at'] - infos[i]['created_at']) > 1500) {
-                        var creaetd_at = formatDate(infos[i-1]['created_at'])
-                        $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
-                    }
-                }
-                if(infos[i]['uid'] == id){
-                    var mess_position = 'right-message';
-                }else{
-                    var mess_position = 'left-message';
-                }
-                $('.chat-content').prepend('<div class="message-list '+mess_position+'"><span><img src="'+'/' + infos[i]['avatar'] + '" class="chat-avatar-small"></span><p>'+infos[i]['message']+'<i></i></p></div>');
-            }
-
-            var creaetd_at = formatDate(infos[infos.length - 1]['created_at'])
-            $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
-
-            if(result['code'] == 1) {
-                $('.chat-content').prepend('<div class="load-more"><span class="load-more-btn">点击加载更多</span></div>')
-            }
         });
     }
     function formatDate(now) {

@@ -69,6 +69,7 @@ class DefaultController extends Controller
     public function actionSentmessage()
     {
         $data = Yii::$app->request->post();
+        $roomId = $data['room_id'];
         $user = User::find()->where(['id' => $data['id']])->one();
         $info = [
             'uid' => $user['id'],
@@ -77,11 +78,12 @@ class DefaultController extends Controller
             'nickname' => $user['nickname'],
             'created_at' => time(),
         ];
-        SentMessage::sendToGroup(123456, $info);
+        SentMessage::sendToGroup($roomId, $info);
 
-        $len = Yii::$app->redis->lpush('info', json_encode($info));
-        if(Yii::$app->redis->llen('info') > 50) {
-            Yii::$app->redis->ltrim('info', 0, 49);
+        $redisMessageKey = $this->getMessageCacheKey($roomId);
+        $len = Yii::$app->redis->lpush($redisMessageKey, json_encode($info));
+        if(Yii::$app->redis->llen($redisMessageKey) > 50) {
+            Yii::$app->redis->ltrim($redisMessageKey, 0, 49);
         }
 
         return json_encode([
@@ -93,6 +95,12 @@ class DefaultController extends Controller
             SentMessage::sendToGroup(123456, $infor);
         }
     }
+
+    private function getMessageCacheKey($value)
+    {
+        return 'message:' . $value;
+    }
+
     public function actionRobot()
     {
         $message = Robot::getMessage('你好', 5);
@@ -106,10 +114,11 @@ class DefaultController extends Controller
     {
         if(Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
-
+            $roomId = $data['room_id'];
+            $redisMessageKey = $this->getMessageCacheKey($roomId);
             $page = $data['info_page'];
 
-            $len = Yii::$app->redis->llen('info');
+            $len = Yii::$app->redis->llen($redisMessageKey);
 
             if($page > $len || $len == 0) {
                 return json_encode([
@@ -118,7 +127,7 @@ class DefaultController extends Controller
                 ]);
             }
 
-            $infos_json = Yii::$app->redis->lrange('info', $page, $page + 9);
+            $infos_json = Yii::$app->redis->lrange($redisMessageKey, $page, $page + 9);
 
             $infos = [];
             foreach ($infos_json as  $info) {
