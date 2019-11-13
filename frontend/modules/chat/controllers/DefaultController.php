@@ -50,6 +50,8 @@ class DefaultController extends Controller
                 'content' => $content ?? '',
                 'time' => $time ?? ''
             ];
+            unset($time);
+            unset($content);
         }
 
         return json_encode($result);
@@ -150,7 +152,7 @@ class DefaultController extends Controller
             $infos = [];
             foreach ($infos_json as  $info) {
                 $pend_info = json_decode($info);
-                $infos[] = $pend_info;
+                array_unshift($infos, $pend_info);
             }
 
             if($page + 10 >= $len) {
