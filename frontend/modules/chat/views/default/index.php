@@ -33,10 +33,10 @@ $this->title = '聊天室';
         <div class="col-cm-8">
             <div class="chat-body">
                 <div class="main-body">
-                    <div class="chat-content" id="chat-main">
+                    <div class="chat-content" id="chat-main"><!-- 
                         <div class="load-more">
                             <span class="load-more-btn" v-on:click="getMessage()">点击加载更多</span>
-                        </div>
+                        </div> -->
                         <ul>
                             <li v-for="message in activeMessages">
                                 <div :class="[message['is_self'] ? 'right-message' : 'left-message', 'message-list']">
@@ -132,6 +132,16 @@ $this->title = '聊天室';
             }
         };
         _this.getMessage();
+        console.log($('.chat-content')[0]);
+        console.log($('.chat-content')[0].scrollHeight);
+        $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
+      },
+      watch: {
+        activeMessages: function() {
+            console.log($('.chat-content')[0]);
+            console.log($('.chat-content')[0].scrollHeight);
+            $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
+        }
       },
       methods: {
         switchCurrentChatRoom: function(roomId) {
@@ -255,7 +265,6 @@ $this->title = '聊天室';
     })
 </script>
 <script type="text/javascript">
-    // $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
     var id = '<?php echo Yii::$app->user->identity->id ?>';
     function getValue()
     {

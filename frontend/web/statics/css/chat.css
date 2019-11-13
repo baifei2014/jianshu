@@ -253,6 +253,10 @@ img.chatroom-img {
     left:-6px;
     top:12px
 }
+.chat-content > ul {
+    padding: 0;
+    margin: 0;
+}
 .right-message p{
     word-break:break-all;
     top:4px;
