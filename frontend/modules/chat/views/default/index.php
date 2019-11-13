@@ -110,19 +110,25 @@ $this->title = '聊天室';
             }
             switch(type){
                 case 'init':
-                    // ajaxRequest(
-                    //     _this.bindUrl,
-                    //     _this.activeRoomId,
-                    //     _this.clientId
-                    // );
+                    ajaxRequest(
+                        _this.bindUrl,
+                        _this.activeRoomId,
+                        _this.clientId
+                    );
                     break;
                 default :
+                    var message = new Array();
+                    message['message'] = data.message;
+                    message['avatar'] = data.avatar;
                     if(data.uid == id){
-                        var mess_position = 'right-message';
+                        message['is_self'] = true;
+                        // var mess_position = 'right-message';
                     }else{
-                        var mess_position = 'left-message';
+                        message['is_self'] = false;
+                        // var mess_position = 'left-message';
                     }
-                    showMessage(mess_position, data.avatar, data.message);
+                    _this.activeMessages.push(message);
+                    // showMessage(mess_position, data.avatar, data.message);
             }
         };
         _this.getMessage();
