@@ -38,12 +38,12 @@ $this->title = '聊天室';
                             <span class="load-more-btn" v-on:click="getMessage()">点击加载更多</span>
                         </div>
                         <ul>
-                            <li v-for="message in messageList">
-                                <div class="message-list" :class="{message['current_user'] == message['uid'] ? 'right-message' : 'left-message'}">
+                            <li v-for="message in activeMessages">
+                                <div :class="[message['is_self'] ? 'right-message' : 'left-message', 'message-list']">
                                     <span>
-                                        <img :src="/message['avatar']" class="chat-avatar-small">
+                                        <img :src="message['avatar']" class="chat-avatar-small">
                                     </span>
-                                    <p>{{ message['message'] }}<i></i></p>
+                                    <p>{{ message['is_self'] }}{{ message['message'] }}<i></i></p>
                                 </div>
                             </li>
                         </ul>
@@ -91,11 +91,12 @@ $this->title = '聊天室';
         ws: null,
         bindUrl: '/chat/default/bind',
         sendMessageUrl: '/chat/default/sentmessage',
-        clientId: null
-        messageList: []
+        clientId: null,
+        activeMessages: null
       },
       created: function() {
         var _this = this
+        _this.setCookie('info_page', "", -1); 
         axios.get('/chat/default/chat-rooms')
           .then(function (response) {
             _this.chatrooms = response.data;
@@ -124,6 +125,12 @@ $this->title = '聊天室';
                     showMessage(mess_position, data.avatar, data.message);
             }
         };
+        _this.getMessage();
+      },
+      watch: {
+        activeRoomId: function() {
+            this.setCookie('info_page', "", -1);
+        }
       },
       methods: {
         switchCurrentChatRoom: function(roomId) {
@@ -134,6 +141,7 @@ $this->title = '聊天室';
                 roomId,
                 this.clientId
             );
+            this.getMessage();
         },
         sendMessage: function() {
             var message = getValue();
@@ -149,12 +157,12 @@ $this->title = '聊天室';
             var csrfToken = $('input[name="_csrf-frontend"]').val();
             formData.append('_csrf-frontend', csrfToken);
 
-            if(getCookie('info_page')){
-                var page =  getCookie('info_page');
-                setCookie('info_page', parseInt(page) + parseInt(10))
+            if(this.getCookie('info_page')){
+                var page =  this.getCookie('info_page');
+                this.setCookie('info_page', parseInt(page) + parseInt(10))
             }else{
                 var page = 0;
-                setCookie('info_page', 10)
+                this.setCookie('info_page', 10)
             }
 
             formData.append('info_page', page);
@@ -163,25 +171,46 @@ $this->title = '聊天室';
             formData.append('room_id', this.activeRoomId);
 
             var _this = this;
-            $.ajax({
+            // axios.post('/chat/default/get-message')
+            //     .then(function (response) {
+            //         _this.chatrooms = response.data;
+            //     })
+            axios({
                 url: '/chat/default/get-message',
-                type: 'post',
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false,
-            }).always(function(response){
-                var result = JSON.parse(response)
-
-                if(!result['code']) {
+                method: 'POST',
+                data: formData
+            }).then(function (response) {
+                if(!response.data.code) {
+                    _this.activeMessages = [];
                     return;
                 }
-                if(page == 0) {
-                    $('.chat-content').prepend('<div class="load-info"><span>以上是历史消息</span></div>')
+                _this.activeMessages = response.data.infos;
+                for (var i = 0; i < _this.activeMessages.length; i++) {
+                    _this.activeMessages[i]['is_self'] = false;
+                    if (_this.activeMessages[i]['uid'] == id) {
+                        _this.activeMessages[i]['is_self'] = true;
+                    }
                 }
-                _this.messageList = result['infos']
-                for (var i = 0; i < infos.length; i++) {
-                    _this.messageList[i]['current_user'] = id;
+            })
+            // $.ajax({
+            //     url: '/chat/default/get-message',
+            //     type: 'post',
+            //     data: formData,
+            //     cache: false,
+            //     contentType: false,
+            //     processData: false,
+            // }).always(function(response){
+            //     var result = JSON.parse(response)
+
+            //     if(!result['code']) {
+            //         return;
+            //     }
+            //     if(page == 0) {
+            //         $('.chat-content').prepend('<div class="load-info"><span>以上是历史消息</span></div>')
+            //     }
+            //     _this.messageList = result['infos'];
+                // for (var i = 0; i < _this.messageList.length; i++) {
+                    // _this.messageList[i]['current_user'] = id;
                     // if(i != 0) {
                     //     if((infos[i-1]['created_at'] - infos[i]['created_at']) > 1500) {
                     //         var creaetd_at = formatDate(infos[i-1]['created_at'])
@@ -194,22 +223,40 @@ $this->title = '聊天室';
                     //     var mess_position = 'left-message';
                     // }
                     // $('.chat-content').prepend('<div class="message-list '+mess_position+'"><span><img src="'+'/' + infos[i]['avatar'] + '" class="chat-avatar-small"></span><p>'+infos[i]['message']+'<i></i></p></div>');
-                }
+                // }
+                // var creaetd_at = formatDate(infos[infos.length - 1]['created_at'])
+                // $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
 
-                var creaetd_at = formatDate(infos[infos.length - 1]['created_at'])
-                $('.chat-content').prepend('<div class="load-info"><span>'+ creaetd_at +'</span></div>')
-
-                if(result['code'] == 1) {
-                    $('.chat-content').prepend('<div class="load-more"><span class="load-more-btn">点击加载更多</span></div>')
+                // if(result['code'] == 1) {
+                //     $('.chat-content').prepend('<div class="load-more"><span class="load-more-btn">点击加载更多</span></div>')
+                // }
+            // });
+        },
+        getCookie: function(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=")
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1
+                    c_end = document.cookie.indexOf(";", c_start)
+                    if (c_end == -1)
+                        c_end = document.cookie.length
+                    return unescape(document.cookie.substring(c_start, c_end))
                 }
-            });
+            }
+            return ""
+        },
+
+        setCookie: function(name, value) {
+            var exp = new Date();
+            exp.setTime(exp.getTime() + 1 * 24 * 60 * 60 * 1000); //3天过期  
+            document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + exp.toGMTString() + ";path=/";
+            return true;
         }
       }
     })
 </script>
 <script type="text/javascript">
-    setCookie('info_page', "", -1); 
-    $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
+    // $('.chat-content').scrollTop( $('.chat-content')[0].scrollHeight );
     var id = '<?php echo Yii::$app->user->identity->id ?>';
     function getValue()
     {
@@ -253,24 +300,4 @@ $this->title = '聊天室';
      
     　　return year + "/" + month + "/" + date + " " + hour + ":" + minute + ":" + second;
     }
-    function getCookie(c_name) {
-        if (document.cookie.length > 0) {
-            c_start = document.cookie.indexOf(c_name + "=")
-            if (c_start != -1) {
-                c_start = c_start + c_name.length + 1
-                c_end = document.cookie.indexOf(";", c_start)
-                if (c_end == -1)
-                    c_end = document.cookie.length
-                return unescape(document.cookie.substring(c_start, c_end))
-            }
-        }
-        return ""
-    }
-
-    function setCookie(name, value) {
-        var exp = new Date();
-        exp.setTime(exp.getTime() + 1 * 24 * 60 * 60 * 1000); //3天过期  
-        document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + exp.toGMTString() + ";path=/";
-        return true;
-    };
 </script>

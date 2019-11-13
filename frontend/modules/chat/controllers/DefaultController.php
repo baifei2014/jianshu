@@ -114,7 +114,7 @@ class DefaultController extends Controller
     }
     public function actionGetMessage()
     {
-        if(Yii::$app->request->isAjax) {
+        // if(Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
             $roomId = $data['room_id'];
             $redisMessageKey = $this->getMessageCacheKey($roomId);
@@ -148,6 +148,6 @@ class DefaultController extends Controller
                     'infos' => $infos
                 ]);
             }
-        }
+        // }
     }
 }
