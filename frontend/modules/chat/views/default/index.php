@@ -110,11 +110,11 @@ $this->title = '聊天室';
             }
             switch(type){
                 case 'init':
-                    ajaxRequest(
-                        _this.bindUrl,
-                        _this.activeRoomId,
-                        _this.clientId
-                    );
+                    // ajaxRequest(
+                    //     _this.bindUrl,
+                    //     _this.activeRoomId,
+                    //     _this.clientId
+                    // );
                     break;
                 default :
                     if(data.uid == id){
@@ -127,15 +127,13 @@ $this->title = '聊天室';
         };
         _this.getMessage();
       },
-      watch: {
-        activeRoomId: function() {
-            this.setCookie('info_page', "", -1);
-            this.activeMessages = [];
-        }
-      },
       methods: {
         switchCurrentChatRoom: function(roomId) {
-            this.activeRoomId = roomId;
+            if (roomId != this.activeRoomId) {
+                this.activeRoomId = roomId;
+                this.setCookie('info_page', "", -1);
+                this.activeMessages = [];
+            }
 
             ajaxRequest(
                 this.bindUrl,
@@ -157,7 +155,6 @@ $this->title = '聊天室';
             var formData = new FormData();
             var csrfToken = $('input[name="_csrf-frontend"]').val();
             formData.append('_csrf-frontend', csrfToken);
-
             if(this.getCookie('info_page')){
                 var page =  this.getCookie('info_page');
                 this.setCookie('info_page', parseInt(page) + parseInt(10))
