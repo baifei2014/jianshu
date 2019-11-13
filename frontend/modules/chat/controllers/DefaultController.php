@@ -30,12 +30,28 @@ class DefaultController extends Controller
         $chatrooms = Chatroom::find()->where(['is_delete' => 0])->all();
         $result = [];
         foreach ($chatrooms as $chatroom) {
+            $messageKey = $this->getMessageCacheKey($chatroom['id']);
+            $lastMessage = Yii::$app->redis->lrange($messageKey, 0, 0);
+            if (! empty($lastMessage)) {
+                $message = json_decode(current($lastMessage), true);
+                $content = $message['message'];
+                if (date('Y-m-d H:i:s', $message['created_at']) > date('Y-m-d 0:0:0')) {
+                    $time = date('H:i:s', $message['created_at']);
+                } elseif (date('Y-m-d H:i:s', $message['created_at']) > date('Y-m-d 0:0:0', strtotime('-1 day'))) {
+                    $time = '昨天';
+                } else {
+                    $time = date('m-d', $message['created_at']);
+                }
+            }
             $result[] = [
                 'id' => $chatroom['id'],
                 'room_name' => $chatroom['room_name'],
                 'avatar' => $chatroom['avatar'],
+                'content' => $content ?? '',
+                'time' => $time ?? ''
             ];
         }
+
         return json_encode($result);
     }
 

@@ -43,7 +43,7 @@ $this->title = '聊天室';
                                     <span>
                                         <img :src="message['avatar']" class="chat-avatar-small">
                                     </span>
-                                    <p>{{ message['is_self'] }}{{ message['message'] }}<i></i></p>
+                                    <p>{{ message['message'] }}<i></i></p>
                                 </div>
                             </li>
                         </ul>
@@ -66,10 +66,10 @@ $this->title = '聊天室';
                                 <div class="chatroom-info">
                                     <div>
                                         <div>{{ chatroom.room_name }}</div>
-                                        <div class="chatroom-lastmessage"><span>今天是小明刚来学校</span></div>
+                                        <div class="chatroom-lastmessage"><span>{{ chatroom.content}}</span></div>
                                     </div>
                                     <div class="chat-time">
-                                        <span>2018-09-01</span>
+                                        <span>{{ chatroom.time }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -130,6 +130,7 @@ $this->title = '聊天室';
       watch: {
         activeRoomId: function() {
             this.setCookie('info_page', "", -1);
+            this.activeMessages = [];
         }
       },
       methods: {
@@ -171,17 +172,12 @@ $this->title = '聊天室';
             formData.append('room_id', this.activeRoomId);
 
             var _this = this;
-            // axios.post('/chat/default/get-message')
-            //     .then(function (response) {
-            //         _this.chatrooms = response.data;
-            //     })
             axios({
                 url: '/chat/default/get-message',
                 method: 'POST',
                 data: formData
             }).then(function (response) {
                 if(!response.data.code) {
-                    _this.activeMessages = [];
                     return;
                 }
                 _this.activeMessages = response.data.infos;
